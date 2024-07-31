@@ -45,7 +45,7 @@ function AddToCart(id) {
             if (data.statut) {
                 sweet_alert("Félicitation", "success", data.message, 1500);
                 get_panier();
-                location.reload();
+            //    location.reload();
                 
                 
             } else {
@@ -118,6 +118,8 @@ function AddFavoris(id) {
         .then((data) => {
             if (data.statut) {
                 sweet_alert("Félicitation", "success", data.message, 1500);
+                location.reload();
+
               // const button = document.getElementById(`favoris-button-${data}`);
              //  button.classList.remove('btn_love');
              // button.classList.add('btn-danger'); // Change 'btn-danger' to your desired class for red color
@@ -220,8 +222,8 @@ function remove_favoris(id) {
                     customClass: "swal-wide",
                 });
                 if (data.count == 0) {
-                    //reload page
-                    location.reload();
+                   
+                  //  location.reload();
                 }
             }
         }
