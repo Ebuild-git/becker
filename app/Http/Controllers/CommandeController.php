@@ -220,7 +220,7 @@ if($connecte){
           'taille' => $produit['taille'],
           
         ]);
-dd($items);
+
 
         $produit->diminuer_stock($session['quantite']);
         

@@ -105,7 +105,7 @@
                                         @endif
                                     </span>
                                     <br>
-                                    @if ($produit->stock > 0 || $produit->sur_devis == false)
+                                    @if ($produit->stock > 0 )
                                         <label class="badge bg-success"> Stock disponible</label>
                                     @else
                                         <label class="badge bg-danger"> Stock non disponible</label>
@@ -158,7 +158,7 @@
                                 <div
                                     class="form-check size-option form-option form-check-inline mb-2">
                                     <input class="form-check-input" type="radio" 
-                                        name="taille" id="taille_{{ $taille }}">
+                                    {{ $loop->first ? 'checked' : '' }}    name="taille" id="taille_{{ $taille }}" checked>
                                     <label class="form-option-label"
                                         for="28">{{ $taille }}</label>
                                 </div>
