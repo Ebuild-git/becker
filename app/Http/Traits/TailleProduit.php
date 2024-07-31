@@ -14,7 +14,6 @@ trait TailleProduit
         // Les couleurs et leurs codes correspondants
         $tailles = [
            'XXL',
-           'XXM',
            'XL',
            'L',
            'M',

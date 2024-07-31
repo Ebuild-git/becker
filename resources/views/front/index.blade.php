@@ -7,7 +7,6 @@
             $config = DB::table('configs')->first();
             $service = DB::table('services')->get();
             $produit = DB::table('produits')->get();
-
         @endphp
 
         <body>
@@ -28,9 +27,9 @@
                                         <!-- Slide Title -->
                                         <div class="home-slider-desc">
                                             <div class="home-slider-title mb-4">
-                                                <h3 class="theme-cl fs-sm ft-ragular mb-0">{{ $banner->titre ?? ' ' }}</h3>
-                                                {{--    <h1 class="mb-1 ft-bold lg-heading">{{ $banner->titre  ?? ' '}}<br>{{ $banner->sous_titre ?? ' ' }}</h1>  --}}
-                                                <span class="trending"> {{ $banner->sous_titre ?? ' ' }}</span>
+                                              {{--   <h2 class="theme-cl fs-sm ft-bold mb-0">{{ $banner->titre ?? ' ' }}</h2> --}}
+                                                   <h3 class="  mb-1 ft-bold sm-heading">{{ $banner->titre  ?? ' '}}<br>{{ $banner->sous_titre ?? ' ' }}</h3>  
+                                              {{--   <span class="trending ft-bold "> {{ $banner->sous_titre ?? ' ' }}</span> --}}
                                             </div>
 
                                             <a href="/shop" class="btn stretched-link borders">Visiter la boutique<i
@@ -53,41 +52,42 @@
             <!-- ======================= All Category ======================== -->
 
             <!-- ============================= Customer Features =============================== -->
-<!-- ======================= Category Style ======================== -->
-<br><br><br><br><br><br><br>
-<br> <br>
+            <!-- ======================= Category Style ======================== -->
+            <br><br><br><br><br><br><br>
+            <br> <br>
 
 
-<section class="p-0">
-    
-    <div class="container">
-       
-        <div class="row overlio">
-            
-				
-        @foreach ($categories as $category) 
-        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
-            <div class="cats_caption_wrap">
-                <div class="cats_caption_thumb mb-2">
-                    <a class="text-anim-2" href="/category/{{ $category->id }}"
-                        class="{{ isset($current_category) && $current_category->id === $category->id ? 'selected' : '' }}"><img  src="{{ Storage::url($category->photo) }}" class="img-fluid rounded" alt="" /></a>
+            <section class="p-0">
+
+                <div class="container">
+
+                    <div class="row overlio">
+
+
+                        @foreach ($categories as $category)
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
+                                <div class="cats_caption_wrap">
+                                    <div class="cats_caption_thumb mb-2">
+                                        <a class="text-anim-2" href="/category/{{ $category->id }}"
+                                            class="{{ isset($current_category) && $current_category->id === $category->id ? 'selected' : '' }}"><img
+                                                src="{{ Storage::url($category->photo) }}" class="img-fluid rounded"
+                                                alt="" /></a>
+                                    </div>
+                                    <div class="cats_caption text-center">
+                                        <h4 class="m-0">{{ $category->nom }}</h4>
+                                        <span class="text-muted">{{ $category->produits->count() }} Collections</span>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+
+
+
+                    </div>
                 </div>
-                <div class="cats_caption text-center">
-                    <h4 class="m-0">{{ $category->nom }}</h4>
-                    <span class="text-muted">{{ $category->produits->count() }} Collections</span>
-                </div>
-            </div>
-        </div>
-        
-        @endforeach
-          
-          
-            
-        </div>
-    </div>
-</section>
-<br><br><br>
-<!-- ======================= Category Style 1 ======================== -->
+            </section>
+            <br><br><br>
+            <!-- ======================= Category Style 1 ======================== -->
             <br><br><br>
             <section class="px-0 py-3 br-top">
                 <div class="container">
@@ -99,8 +99,8 @@
                                     <i class="fas fa-shopping-basket"></i>
                                 </div>
                                 <div class="d_capt">
-                                    <h5 class="mb-0">Free Shipping</h5>
-                                    <span class="text-muted">Capped at $10 per order</span>
+                                    <h5 class="mb-0">LIVRAISON GRATUITE</h5>
+                                    <span class="text-muted">Plafonné à 20 DT par commande</span>
                                 </div>
                             </div>
                         </div>
@@ -111,8 +111,8 @@
                                     <i class="far fa-credit-card"></i>
                                 </div>
                                 <div class="d_capt">
-                                    <h5 class="mb-0">Secure Payments</h5>
-                                    <span class="text-muted">Up to 6 months installments</span>
+                                    <h5 class="mb-0">PAIEMENTS SÉCURISÉS</h5>
+                                    <span class="text-muted">Jusqu'à 6 mois de versement</span>
                                 </div>
                             </div>
                         </div>
@@ -123,8 +123,8 @@
                                     <i class="fas fa-shield-alt"></i>
                                 </div>
                                 <div class="d_capt">
-                                    <h5 class="mb-0">15-Days Returns</h5>
-                                    <span class="text-muted">Shop with fully confidence</span>
+                                    <h5 class="mb-0">RETOURS SOUS 15 JOURS</h5>
+                                    <span class="text-muted">Achetez en toute confiance</span>
                                 </div>
                             </div>
                         </div>
@@ -135,8 +135,8 @@
                                     <i class="fas fa-headphones-alt"></i>
                                 </div>
                                 <div class="d_capt">
-                                    <h5 class="mb-0">24x7 Fully Support</h5>
-                                    <span class="text-muted">Get friendly support</span>
+                                    <h5 class="mb-0">ASSISTANCE ENTIÈRE 24h/24 et 7j/7</h5>
+                                    <span class="text-muted">Obtenez un soutien amical</span>
                                 </div>
                             </div>
                         </div>
@@ -172,24 +172,52 @@
 
                                     @if ($produit->inPromotion())
                                         <div
-                                            class="badge bg-success text-white position-absolute ft-regular ab-left text-upper">
+                                            class="badge bg-danger text-white position-absolute ft-regular ab-left text-upper">
                                             - {{ $produit->inPromotion()->pourcentage }} %</div>
                                     @endif
+                                    {{--  @if (Auth()->user())
+                                        <button   id="favoris-button-{{ $produit->id }}" onclick="AddFavoris({{ $produit->id }})"
+                                            class="snackbar-wishlist btn btn_love position-absolute ab-right"><i
+                                                class="far fa-heart"></i></button>
+                                    @endif --}}
+                                   
                                     @if (Auth()->user())
-                                    <button   onclick="AddFavoris({{ $produit->id }})" class="snackbar-wishlist btn btn_love position-absolute ab-right"><i
-                                            class="far fa-heart"></i></button>
-                                            @endif
+                                    @php
+
+                                    $count = DB::table('favoris')
+                                        ->where('id_user', Auth()->user()->id)
+                                        ->where('id_produit', $produit->id)
+                                        ->count();
+                                @endphp
+                                        <button onclick="AddFavoris({{ $produit->id }})"
+                                            @if ($count == 0) class="snackbar-wishlist btn btn_love position-absolute ab-right favoris-added"
+
+                                                @else
+                                                 class="snackbar-wishlist btn  position-absolute ab-right favoris-added" @endif>
+                                            <i class="far fa-heart"></i>
+                                        </button>
+                                    @endif
+
+
+                                    <style>
+                                        .favoris-added {
+                                            color: rgb(233, 20, 35);
+
+                                        }
+                                    </style>
                                     <div class="card-body p-0">
                                         <div class="shop_thumb position-relative">
-                                            <a class="card-img-top d-block overflow-hidden"  href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}"><img
-                                                    class="card-img-top"  src="{{ Storage::url($produit->photo) }}"
+                                            <a class="card-img-top d-block overflow-hidden"
+                                                href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}"><img
+                                                    class="card-img-top" src="{{ Storage::url($produit->photo) }}"
                                                     alt="...">
-                                                   
-                                                </a>
+
+                                            </a>
                                             <div
                                                 class="product-hover-overlay bg-dark d-flex align-items-center justify-content-center">
                                                 <div class="edlio"><a href="#" data-toggle="modal"
-                                                        data-target="#{{ $produit->id }}" class="text-white fs-sm ft-medium"><i
+                                                        data-target="#{{ $produit->id }}"
+                                                        class="text-white fs-sm ft-medium"><i
                                                             class="fas fa-eye mr-1"></i>Voir détails</a></div>
                                             </div>
                                         </div>
@@ -199,23 +227,26 @@
                                         <div class="text-left">
                                             <div class="text-center">
                                                 <h5 class="fw-bolder fs-md mb-0 lh-1 mb-1"><a
-                                                    href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">{{ $produit->nom }}</a></h5>
-                                                <div class="elis_rty"><span class="ft-bold fs-md text-dark">@if ($produit->inPromotion())
-                                                    <span class=" small">
-                                                        - {{ $produit->inPromotion()->pourcentage }} %
+                                                        href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">{{ $produit->nom }}</a>
+                                                </h5>
+                                                <div class="elis_rty"><span class="ft-bold fs-md text-dark">
+                                                        @if ($produit->inPromotion())
+                                                            <span class=" small">
+                                                               {{--  - {{ $produit->inPromotion()->pourcentage }} % --}}
+                                                            </span>
+                                                            <b class="">
+                                                                {{ $produit->getPrice() }} DT
+                                                            </b>
+                                                            <br>
+                                                            <strike>
+                                                                <span class="text-danger small">
+                                                                    {{ $produit->prix }} DT
+                                                                </span>
+                                                            </strike>
+                                                        @else
+                                                            {{ $produit->getPrice() }} DT
+                                                        @endif
                                                     </span>
-                                                    <b class="text-success">
-                                                        {{ $produit->getPrice() }} DT
-                                                    </b>
-                                                    <br>
-                                                    <strike>
-                                                        <span class="text-danger small">
-                                                            {{ $produit->prix }} DT
-                                                        </span>
-                                                    </strike>
-                                                @else
-                                                    {{ $produit->getPrice() }} DT
-                                                @endif</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -261,11 +292,11 @@
 
                         <!-- Single -->
                         @foreach ($produits as $produit)
-                        @if ($produit->inPromotion())
+                            @if ($produit->inPromotion())
                                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
                                     <div class="product_grid card b-0">
                                         <div
-                                            class="badge bg-success text-white position-absolute ft-regular ab-left text-upper">
+                                            class="badge bg-danger text-white position-absolute ft-regular ab-left text-upper">
                                             @if ($produit->inPromotion())
                                                 <span>
                                                     -{{ $produit->inPromotion()->pourcentage }}%</span>
@@ -285,33 +316,45 @@
                                                                             class="fas fa-expand-arrows-alt position-absolute"></i></a>
                                                                 </li> --}}
                                                         @if (Auth()->user())
-                                                            <li><a {{-- href="javascript:void(0);" --}}
-                                                                    onclick="AddFavoris({{ $produit->id }})"
-                                                                    class="d-inline-flex circle align-items-center justify-content-center snackbar-wishlist"><i
+                                                            <li><a onclick="AddFavoris({{ $produit->id }})"
+                                                                    class="d-inline-flex circle align-items-center justify-content-center"><i
                                                                         class="far fa-heart position-absolute"></i></a>
                                                             </li>
                                                         @endif
-                                                        <li><a {{--  href="javascript:void(0);" --}}
-                                                                onclick="AddToCart({{ $produit->id }})"
+                                                        <li><a onclick="AddToCart({{ $produit->id }})"
                                                                 class="d-inline-flex circle align-items-center justify-content-center snackbar-addcart"><i
                                                                     class="fas fa-shopping-basket position-absolute"></i></a>
                                                         </li>
                                                     </ul>
                                                 </div>
+{{-- 
+                                                @if (Auth()->user())
+                                        <button onclick="AddFavoris({{ $produit->id }})"
+                                            @if ($count == 0) class="snackbar-wishlist btn btn_love position-absolute ab-right favoris-added"
 
-                                                <style>
-                                                    .shop_thumb {
-                                                        color: red;
-                                                    }
-                                                </style>
-                                                @if ($produit->sur_devis == false)
+                                                @else
+                                                 class="snackbar-wishlist btn  position-absolute ab-right favoris-added" @endif>
+                                            <i class="far fa-heart"></i>
+                                        </button>
+                                    @endif
+
+
+                                    <style>
+                                        .favoris-added {
+                                            color: rgb(233, 20, 35);
+
+                                        }
+                                    </style> --}}
+
+
+                                               
                                                     <div class="rr-fea-product__thumb-text">
                                                         @if ($produit->inPromotion())
                                                             <span>
                                                                 -{{ $produit->inPromotion()->pourcentage }}%</span>
                                                         @endif
                                                     </div>
-                                                @endif
+                                                
                                                 <div
                                                     class="product-hover-overlay bg-dark d-flex align-items-center justify-content-center">
                                                     <div class="edlio"><a href="#" data-toggle="modal"
@@ -327,8 +370,8 @@
 
                                                     @foreach ($produit->couleur ?? [] as $key => $value)
                                                         <div class="form-check form-option form-check-inline mb-1">
-                                                            <input class="form-check-input" type="radio"
-                                                                name="color1" id="white" checked="">
+                                                            <input class="form-check-input" type="radio" name="color1"
+                                                                id="white" checked="">
                                                             <label class="form-option-label small rounded-circle"
                                                                 for="white"> <span
                                                                     class="form-option-color rounded-circle blc7"
@@ -347,7 +390,7 @@
                                                     {{--  <button class="btn auto btn_love snackbar-wishlist"><i
                                                     class="far fa-heart"></i></button> --}}
 
-                                                 {{--    @if (Auth()->user())
+                                                    {{--    @if (Auth()->user())
                                                         <button type="button favoris-button-"
                                                             class="btn auto btn_love snackbar-wishlist"
                                                            
@@ -373,9 +416,9 @@
                                                 <div class="elis_rty"><span class="ft-bold text-dark fs-sm">
                                                         @if ($produit->inPromotion())
                                                             <span class=" small">
-                                                                - {{ $produit->inPromotion()->pourcentage }} %
+                                                              {{--   - {{ $produit->inPromotion()->pourcentage }} % --}}
                                                             </span>
-                                                            <b class="text-success">
+                                                            <b class="">
                                                                 {{ $produit->getPrice() }} DT
                                                             </b>
                                                             <br>
@@ -419,101 +462,7 @@
 
             <!-- ======================= Blog Start ============================ -->
 
-            <!-- ======================= Instagram Start ============================ -->
-            <section class="p-0">
-                <div class="container-fluid p-0">
-
-                    <div class="row no-gutters">
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                            <div class="sec_title position-relative text-center">
-                                <h2 class="off_title">Instagram Gallery</h2>
-                                <span class="fs-lg ft-bold theme-cl pt-3">@mahak_71</span>
-                                <h3 class="ft-bold lh-1">From Instagram</h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row no-gutters">
-
-                        <div class="col">
-                            <div class="_insta_wrap">
-                                <div class="_insta_thumb">
-                                    <a href="javascript:void(0);" class="d-block"><img
-                                            src="https://via.placeholder.com/500x480" class="img-fluid"
-                                            alt="" /></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="_insta_wrap">
-                                <div class="_insta_thumb">
-                                    <a href="javascript:void(0);" class="d-block"><img
-                                            src="https://via.placeholder.com/500x480" class="img-fluid"
-                                            alt="" /></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="_insta_wrap">
-                                <div class="_insta_thumb">
-                                    <a href="javascript:void(0);" class="d-block"><img
-                                            src="https://via.placeholder.com/500x480" class="img-fluid"
-                                            alt="" /></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="_insta_wrap">
-                                <div class="_insta_thumb">
-                                    <a href="javascript:void(0);" class="d-block"><img
-                                            src="https://via.placeholder.com/500x480" class="img-fluid"
-                                            alt="" /></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="_insta_wrap">
-                                <div class="_insta_thumb">
-                                    <a href="javascript:void(0);" class="d-block"><img
-                                            src="https://via.placeholder.com/500x480" class="img-fluid"
-                                            alt="" /></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="_insta_wrap">
-                                <div class="_insta_thumb">
-                                    <a href="javascript:void(0);" class="d-block"><img
-                                            src="https://via.placeholder.com/500x480" class="img-fluid"
-                                            alt="" /></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="_insta_wrap">
-                                <div class="_insta_thumb">
-                                    <a href="javascript:void(0);" class="d-block"><img
-                                            src="https://via.placeholder.com/500x480" class="img-fluid"
-                                            alt="" /></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="_insta_wrap">
-                                <div class="_insta_thumb">
-                                    <a href="javascript:void(0);" class="d-block"><img
-                                            src="https://via.placeholder.com/500x480" class="img-fluid"
-                                            alt="" /></a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-            </section>
-            <!-- ======================= Instagram Start ============================ -->
-
+         
 
             <!-- Product View Modal -->
             @if ($produits)
@@ -546,7 +495,8 @@
                                             <div class="prd_details">
 
                                                 <div class="prt_01 mb-1"><span
-                                                        class="text-light bg-info rounded px-2 py-1">Categorie: {{ $produit->categories->nom }}</span></div>
+                                                        class="text-light bg-info rounded px-2 py-1">Categorie:
+                                                        {{ $produit->categories->nom }}</span></div>
                                                 <div class="prt_02 mb-2">
                                                     <h2 class="ft-bold mb-1">{{ $produit->nom }}</h2>
                                                     <div class="text-left">
@@ -658,8 +608,7 @@
                                                                             class="far fa-minus"></i></span>
                                                                     <input type="number" class="input-text qty text"
                                                                         name="quantite" value="1"
-                                                                        id="qte-{{ $produit->id }}"
-                                                                        autocomplete="off">
+                                                                        id="qte-{{ $produit->id }}" autocomplete="off">
                                                                     <span class="quantity-control plus"><i
                                                                             class="far fa-plus"></i></span>
                                                                 </div>
@@ -752,15 +701,14 @@
 
             @endif
 
-          
+
 
             <!-- Wishlist -->
             <!-- Wishlist -->
 
 
 
-            <a id="back2Top" class="top-scroll" title="Back to top" href="#"><i
-                    class="ti-arrow-up"></i></a>
+            <a id="back2Top" class="top-scroll" title="Back to top" href="#"><i class="ti-arrow-up"></i></a>
 
 
             </div>

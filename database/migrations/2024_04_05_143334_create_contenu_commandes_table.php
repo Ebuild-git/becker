@@ -19,6 +19,7 @@ return new class extends Migration
             $table->enum("type",["produit","pack"])->default("produit");
             $table->integer("quantite")->nullable();
             $table->integer("quantity")->nullable();
+            $table->string('taille')->nullable();
             $table->decimal('prix_unitaire', 13, 3)->default(10);
             $table->decimal('prix', 13, 3)->nullable();
             $table->decimal('benefice', 13, 3)->default();

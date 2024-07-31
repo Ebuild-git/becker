@@ -29,7 +29,7 @@ class OrderMail extends Mailable
     {
         return $this->view('Mail.order-mail')
             ->subject( 'NOUVELLE COMMANDE')
-            ->from("no-reply@hb-design.online", config('app.name'));
+            ->from("no_reply@becker", config('app.name'));
     }
 
 }

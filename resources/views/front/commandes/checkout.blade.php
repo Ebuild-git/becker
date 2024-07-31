@@ -141,6 +141,8 @@
                                             <div class="cart_single_caption pl-2">
                                                 <h4 class="product_title fs-md ft-medium mb-1 lh-1">{{ $details['nom'] }}</h4>
                                                 <p class="mb-1 lh-1"><span class="text-dark">Qté:  {{ $details['quantite'] }}</span></p>
+                                                {{-- <p class="mb-1 lh-1"><span class="text-dark">Taille:  {{ $details['taille'] }}</span></p>  --}}
+                                                
                                                 
                                                 <h4 class="fs-md ft-medium mb-3 lh-1">{{ $details['total'] }} DT</h4>
                                             </div>

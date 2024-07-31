@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Confirmation de la commande</title>
+    <title>Confirmation de la commande chez BECKER</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -130,7 +130,7 @@
                 </tr>
             </tbody>
         </table>
-        <p>Your order will be processed soon. Thank you for shopping with us!</p>
+        <p>Your order will be processed soon. Thank you for shopping with BECKER!</p>
     </div>
 </body>
 

@@ -118,11 +118,14 @@ function AddFavoris(id) {
         .then((data) => {
             if (data.statut) {
                 sweet_alert("Félicitation", "success", data.message, 1500);
-              //  const button = document.getElementById(`favoris-button-${id_produitor}`);
-             //  button.classList.remove('btn-default');
-               //button.classList.add('btn-danger'); // Change 'btn-danger' to your desired class for red color
-              //button.innerHTML = '<i class="lni lni-heart-filled mr-2"></i> Added to Favorites';
-              
+              // const button = document.getElementById(`favoris-button-${data}`);
+             //  button.classList.remove('btn_love');
+             // button.classList.add('btn-danger'); // Change 'btn-danger' to your desired class for red color
+            //  button.innerHTML = '<i class="lni lni-heart-filled mr-2"></i> Added to Favorites';
+
+          //    const button = document.getElementById(`favoris-button-${data}`);
+           // button.classList.add('favoris-added');
+            
             
             } else {
                 console.log("Erreur lors de l'ajout du produit  aux favoris .");

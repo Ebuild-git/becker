@@ -27,7 +27,7 @@ class ChangeStatut extends Mailable
         return $this->to($this->commande->email)
             ->view('Mail.change-statut')
             ->subject('Mise à Jour du Statut de Commande sur '. config('app.name'))
-            ->from("no-reply@sarab-cosmetique.com", config('app.name'));
+            ->from("no_reply@becker", config('app.name'));
 
     }
 }

@@ -48,12 +48,19 @@
 
                 <div class="col-xl-5 col-lg-6 col-md-12 col-sm-12">
                     <div class="quick_view_slide">
+                        
 
                         @foreach (json_decode($produit->photos) ?? [] as $photo)
+                        
                         <div class="single_view_slide"><a href="{{ Storage::url($photo) }}"
-                                data-lightbox="roadtrip" class="d-block mb-4"><img
+                                data-lightbox="roadtrip" class="d-block mb-4">
+                                
+                                <img
                                 src="{{ Storage::url($photo) }}" {{-- class="img-fluid rounded" --}}class="img-responsive m-auto"
-                                    alt="" /></a></div>
+                                    alt="" />
+                                
+                                </a>
+                                </div>
                                     @endforeach
   
                     </div>
@@ -81,23 +88,24 @@
                                             <span class="ft-bold theme-cl fs-lg mr-2">
                                                 $110
                                             </span> --}}
-                                    @if ($produit->inPromotion())
-                                        <span class=" small">
-                                            - {{ $produit->inPromotion()->pourcentage }} %
-                                        </span>
-                                        <b class="ft-bold theme-cl fs-lg mr-2">
-                                            {{ $produit->getPrice() }} DT
-                                        </b>
-                                        <br>
-                                        <strike>
-                                            <span class="ft-medium text-muted line-through fs-md mr-2">
-                                                {{ $produit->prix }} DT
+                                            <span class="ft-bold fs-md text-dark">
+                                                @if ($produit->inPromotion())
+                                                    <span class=" small">
+                                                       {{--  - {{ $produit->inPromotion()->pourcentage }} % --}}
+                                                    </span>
+                                                    <b class="">
+                                                        {{ $produit->getPrice() }} DT
+                                                    </b>
+                                                    <br>
+                                                    <strike>
+                                                        <span class="text-danger small">
+                                                            {{ $produit->prix }} DT
+                                                        </span>
+                                                    </strike>
+                                                @else
+                                                    {{ $produit->getPrice() }} DT
+                                                @endif
                                             </span>
-                                        </strike>
-                                    @else
-                                        {{ $produit->getPrice() }} DT
-                                    @endif
-
                                     <br>
                                     @if ($produit->stock > 0 || $produit->sur_devis == false)
                                         <label class="badge bg-success"> Stock disponible</label>
@@ -140,20 +148,32 @@
                             <p class="d-flex align-items-center mb-0 text-dark ft-medium">Taille(s):
                             </p>
                             <div class="text-left pb-0 pt-2">
-                                @foreach ($produit->taille as $taille)
+                                 @foreach ($produit->taille as $index=> $taille)
                                     <div class="form-check size-option form-option form-check-inline mb-2">
-                                        <input class="form-check-input" type="radio" name="size" id="28"
+                                        <input class="form-check-input" type="radio" name="size" id="size-{{ $index }}" value="{{ $taille }}"  {{ $loop->first ? 'checked' : '' }}
                                             checked="">
-                                        <label class="form-option-label" for="28">{{ $taille }}</label>
-                                @endforeach
+                                        <label class="form-option-label" for="size-{{ $index }}">{{ $taille }}</label>
+                                @endforeach 
+                               {{--  <select wire:model="paniers.{{ $id }}.taille" wire:change="updateTaille({{ $id }}, $event.target.value)">
+                                    @foreach($tailles as $taille)
+                                        <option value="{{ $taille }}" {{ $taille == $details['taille'] ? 'selected' : '' }}>{{ $taille }}</option>
+                                    @endforeach
+                                </select> --}}
                             </div>
 
+                          
+
                         </div>
+                      
 
                         <div class="prt_05 mb-4">
                             <div class="form-row mb-7">
+                               
                                 <div class="col-12 col-lg-auto">
+                                    <br>
+                             
                                     <div class="quantity">
+                                        Quantité:
                                         <div class="quantity__group">
                                             <span class="quantity-control minus"><i class="far fa-minus"></i></span>
                                             <input type="number" class="input-text qty text" name="quantite"
@@ -189,23 +209,15 @@
                                         }
 
                                         .input-text.qty {
-                                            width: 100px;
+                                            width: 70px;
                                             text-align: center;
                                             border: 1px solid #ccc;
                                             margin: 0 5px;
-                                            font-size: 2.5em;
+                                            font-size: 1.5em;
                                         }
                                     </style>
 
 
-                                    <!-- Quantity -->
-                                    {{--    <select class="mb-2 custom-select">
-                                              <option value="1" selected="">1</option>
-                                              <option value="2">2</option>
-                                              <option value="3">3</option>
-                                              <option value="4">4</option>
-                                              <option value="5">5</option>
-                                            </select> --}}
                                 </div>
                                 <div class="col-12 col-lg">
                                     <!-- Submit -->

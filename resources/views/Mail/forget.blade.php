@@ -56,12 +56,12 @@
 <body>
     <div class="container">
         <div class="header">
-           {{--  <img src="https://agrihub.online/icons/logo%20png.png" alt="AGRIHUB Logo"> --}}
+           {{--  <img src="https://agrihub.online/icons/logo%20png.png" alt="BECKER Logo"> --}}
         </div>
         <div class="content">
             <h1>Vérification de votre compte</h1>
             <p>Bonjour {{ $user->nom  }} ,</p>
-            <p>Merci de vous être inscrit sur HB-DESIGN. Pour finaliser votre inscription et vérifier votre compte, veuillez utiliser le code de vérification ci-dessous :</p>
+            <p>Merci de vous être inscrit sur BECKER. Pour finaliser votre inscription et vérifier votre compte, veuillez utiliser le code de vérification ci-dessous :</p>
             <span class="code">{{$code }}</span>
             <p>Si vous n'avez pas demandé cette vérification, veuillez ignorer cet email.</p>
         </div>

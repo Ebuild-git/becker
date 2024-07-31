@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 //require './vendor/autoload.php';
 
 
-use App\Models\{commandes,config, User,produits, Category, Service,Marque};
+use App\Models\{commandes,config,favoris, User,produits, Category, Service,Marque};
 use App\Models\Banners;
 use App\Models\templates;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -16,6 +16,7 @@ use App\Http\Requests\Front\SearchRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\JsonResponse;
 use App\Http\Traits\ListColor;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -44,7 +45,10 @@ class HomeController extends Controller
      
  
  $couleurs = $this->getListColor();
- 
+ //$id_produit = $request->input('id_produit');
+ //$produit = produits::find($id_produit);
+// $favorited = favoris::where('id_user', Auth::user()->id)->where("id_produit", $id_produit)->count();
+//$favorited = favoris::where('id_user', Auth::user()->id)->where("id_produit", $id_produit)->count();
       
       return view('front.index', compact('couleurs','produits','configs','banners','key', 'categoryProducts', 'favoris'));
 

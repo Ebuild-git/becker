@@ -187,17 +187,47 @@ $(function() {
 	}); 
 	
 	// Snackbar for wishlist Product
-	$('.snackbar-wishlist').click(function() { 
+/* 	$('.snackbar-wishlist').click(function() { 
 		Snackbar.show({
-			text: 'Le produit est ajouté au favorie avec succèss!',
+			text: 'Le produit est ajouté au favori avec succèss!',
 			pos: 'top-right',
 			showAction: false,
 			actionText: "Dismiss",
 			duration: 5000,
 			textColor: '#fff',
 			backgroundColor: '#151515'
+
 		}); 
+	
+		 
+		 
+	}); */
+
+	function AddFavoris(id) {
+		// Ajout du produit aux favoris (vous pouvez implémenter cette logique)
+		// ...
+	
+		// Changer la couleur de l'icône
+		const button = document.getElementById(`favoris-button-${id}`);
+		button.classList.add('favoris-added')
+	
+		// Afficher la notification Snackbar
+		Snackbar.show({
+			text: 'Le produit est ajouté au favori avec succès!!',
+			pos: 'top-right',
+			showAction: false,
+			duration: 5000,
+			textColor: '#fff',
+			backgroundColor: '#151515'
+		});
+	}
+	
+	// Attacher l'événement click aux éléments avec la classe snackbar-wishlist
+	$('.snackbar-wishlist').click(function() { 
+		const productId = $(this).data('product-id');
+		AddFavoris(productId);
 	});
+	
 	
 	// Bottom To Top Scroll Script
 	$(window).on('scroll', function() {

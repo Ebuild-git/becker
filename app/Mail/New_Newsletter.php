@@ -25,7 +25,7 @@ class New_Newsletter extends Mailable
     public function build()
     {
         return $this->view('Mail.Newsletter')
-            ->subject("Félicitation pour votre inscription sur HB-DESIGN NEWSLETTER");
+            ->subject("Félicitation pour votre inscription sur BECKER NEWSLETTER");
 
     }
 }

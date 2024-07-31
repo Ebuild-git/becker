@@ -26,7 +26,7 @@ class ResetPassword extends Mailable
     {
         return $this->view('Mail.forget')
             ->subject('Nouveau mot de passe'.config('app.name'))
-            ->from("no-reply@sarab-cosmetique.com", "réinitialiser votre mot de passe");
+            ->from("no_reply@becker", "réinitialiser votre mot de passe");
 
     }
 }

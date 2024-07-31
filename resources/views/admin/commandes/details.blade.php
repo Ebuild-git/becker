@@ -62,6 +62,7 @@
                                         <tr>
                                             <th></th>
                                             <th>Product</th>
+                                            <th>Taille</th>
                                             <th>Type</th>
                                             <th>Prix</th>
                                             <th>Qty</th>
@@ -80,6 +81,10 @@
                                                         <img src="{{ $contenu->pack->photo() }}" width="40"
                                                             height="40" class="rounded shadow" alt="photo">
                                                     @endif
+                                                </td>
+                                                <td>
+                                                    
+                                                 {{ $contenu->taille }}  
                                                 </td>
                                                 <td>
                                                     @if ($contenu->type == 'produit')

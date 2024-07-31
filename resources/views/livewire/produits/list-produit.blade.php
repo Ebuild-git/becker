@@ -76,8 +76,7 @@
                     <th>Prix vente</th>
                     <th>Prix achat</th>
                     <th>Sell</th>
-                    <th>Vues</th>
-                    <th>Type Produit</th>
+                  
                     <th>création</th>
                     <th style="text-align: right;">
                         <span wire:loading>
@@ -154,26 +153,8 @@
                             <i class="ri-wallet-2-line vert"></i>
                             {{ $produit->vendus->count() }}
                         </td>
-                        <td>
-                            <i class="ri-bar-chart-box-line vert"></i>
-                            {{ $produit->vues->count() }}
-                        </td>
-                        <td>
-                            @if ($produit->sur_devis == false)
-                                <div class="progress-bar bg-primary progress" style="width: 80%" aria-valuenow="10"
-                                    aria-valuemin="0" aria-valuemax="100">
-                                    <b>Produit simple</b>
-                                    {{--    {{ $produit->sur_devis }}  --}}
-                                </div>
-                            @else
-                                <div class="progress-bar bg-info" style="width: 80%" aria-valuenow="30"
-                                    aria-valuemin="0" aria-valuemax="100">
-                                    <b>Produit sur devis</b>
-                                    {{--     {{ $produit->sur_devis }}  --}}
-                                </div>
-                            @endif
-                            {{--  {{ $produit->sur_devis }} --}}
-                        </td>
+                      
+                       
                         <td>{{ $produit->created_at->format('d/m/Y') }} </td>
                         <td style="text-align: right;">
                             <div class="btn-group">

@@ -22,7 +22,7 @@
         }
         .header {
             text-align: center;
-            background-color: #fed000;
+            background-color: #1c1b1a;
             padding: 20px;
         }
         .header img {
@@ -32,7 +32,7 @@
             padding: 20px;
         }
         .content h1 {
-            color: #578b07;
+            color: #0e0f0d;
         }
         .footer {
             text-align: center;
@@ -47,7 +47,7 @@
             margin-top: 20px;
             font-size: 16px;
             color: #ffffff;
-            background-color: #578b07;
+            background-color: #0d0d0c;
             text-decoration: none;
             border-radius: 5px;
         }
@@ -55,15 +55,13 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">
-          {{--   <img src="https://agrihub.online/icons/logo%20png.png" alt="AGRIHUB Logo"> --}}
-        </div>
+      
         <div class="content">
             <h1>Bienvenue chez  BECKER !</h1>
             <p>Bonjour {{ $user->nom }} ,</p>
-            <p>Nous sommes ravis de vous compter parmi nos nouveaux membres. Chez  BECKER, nous nous engageons à vous fournir les mellieurs parfums pour répondre à tous vos besoins.</p>
+            <p>Merci de vous être inscrit et de rejoindre notre communauté de passionnés de mode. Nous sommes ravis de vous accueillir et avons hâte de vous aider à découvrir les dernières tendances et les pièces uniques qui feront briller votre style</p>
             <p>Votre inscription a été réalisée avec succès. Vous pouvez dès à présent explorer notre large gamme de produits et profiter de nos offres exclusives réservées aux membres.</p>
-            <a href="#" class="button">Découvrir nos produits</a>
+            <a href="{{ url('/shop') }}" class="button">Découvrir nos produits</a>
         </div>
         <div class="footer">
             <p>&copy; 2024  BECKER. Tous droits réservés.</p>

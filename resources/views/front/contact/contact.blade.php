@@ -71,40 +71,21 @@
                                         <a href="#">{{ $config->addresse }}</a>
                                     </div>
 
-                                   
-                                   
+
+
                                 </div>
 
-                                <style>
-                                    .mt-40 {
-    margin-top: 40px;
-}
-
-.p-4 {
-    padding: 16px; /* 1rem padding */
-}
-                                </style>
-
-                                <div class="footer__social mt-40 p-4">
-                                    <a href="{{ $config->facebook }}"><i class="fab fa-facebook-f"></i></a>
-                                   
-                                    <a href="{{ $config->instagram }}"><i class="fab fa-instagram"></i></a>
-    
-                                    
-                                  
-                                </div>
+                           
                             </div>
 
                         </div>
                     </div>
                     <div class="col-xl-7">
                         <div class="contact-us__form-wrapper mb-30 mb-xs-25">
-                            <h3 class="section__title mb-10 wow fadeInLeft animated" data-wow-delay=".3s">Envoyer un message
+                            <h3 class="section__title mb-10 wow fadeInLeft animated" data-wow-delay=".3s">Laisser un message
                             </h3>
-                            <p class="mb-40 mb-sm-25 mb-xs-20 wow fadeInLeft animated" data-wow-delay=".5s">Vous pouvez
-                                également nous contacter par téléphone ou par e-mail, il existe de nombreuses variantes</p>
-
-                             @livewire('Front.ContactForm')
+                            
+                            @livewire('Front.ContactForm')
                         </div>
                     </div>
                 </div>

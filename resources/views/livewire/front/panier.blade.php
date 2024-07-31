@@ -24,8 +24,37 @@
                             <div class="col d-flex align-items-center justify-content-between">
                                 <div class="cart_single_caption pl-2">
                                     <h4 class="product_title fs-md ft-medium mb-1 lh-1">{{ $details['nom'] }}</h4>
-                                   
-                                    <h4 class="fs-md ft-medium mb-3 lh-1">{{ $details['prix'] }}</h4>
+                                  <h4 class="fs-md ft-medium mb-3 lh-1">{{ $details['prix'] }}</h4>
+                                   <div class="row">
+                                    
+
+                                    <div class="col"><h4 class="fs-md ft-medium mb-3 lh-1">Taille</h4></div>
+                                    <div class="col">
+                                        {{-- <select wire:model="taille" wire:update="updateTaille({{ $details['id_produit'] }})">
+                                            
+                                             @foreach($tailles  as $taille)
+                                             <option value="{{$taille}}" {{ $taille == $taille ?'selected' : '' }}>{{ $taille }}</option>
+                                             @endforeach
+
+
+                                        </select> --}}
+                                         <select wire:model="tailles.{{ $id }}" wire:change="updateTaille({{ $id }})">
+                                            @foreach($tailles ?? [] as $taille)
+                                                <option value="{{ $taille }}" {{ $taille == $details['taille'] ? 'selected' : '' }}>{{ $taille }}</option>
+                                            @endforeach
+                                        </select>  
+
+                                 {{--        @foreach ($details->taille ?? [] as $index=> $taille)
+                                    <div class="form-check size-option form-option form-check-inline mb-2">
+                                        <input class="form-check-input" type="radio" name="size" id="size-{{ $index }}" value="{{ $taille }}"  {{ $loop->first ? 'checked' : '' }}
+                                            checked="">
+                                        <label class="form-option-label" for="size-{{ $index }}">{{ $taille }}</label>
+                                @endforeach --}}
+                                    </div>
+                                   </div>
+
+
+
                         
                                     <div class="d-flex justify-content-between btn-group-qte">
                                         <button class="btn minus" type="button"  wire:click="update({{ $details['id_produit'] }},{{ $details['quantite'] - 1 }})">
@@ -38,11 +67,47 @@
                                          +
                                          </button>
                                     </div>
+                                    <style>
+                                        .btn-group-qte {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adjust spacing between buttons and quantity display */
+}
+
+.btn-group-qte .btn {
+    font-size: 1.2rem; /* Adjust the font size */
+    padding: 5px 10px; /* Adjust padding for buttons */
+    border-radius: 5px; /* Round corners */
+}
+
+.btn-group-qte .minus {
+    background-color: #f8d7da; /* Light red color for minus button */
+    border: 1px solid #f5c6cb; /* Border color matching the background */
+}
+
+.btn-group-qte .plus {
+    background-color: #d4edda; /* Light green color for plus button */
+    border: 1px solid #c3e6cb; /* Border color matching the background */
+}
+
+.btn-group-qte .qte {
+    font-size: 1.2rem; /* Font size for quantity display */
+    font-weight: bold; /* Bold text */
+    text-align: center; /* Center text */
+    width: 50px; /* Fixed width for quantity display */
+}
+
+                                    </style>
                                     <br><br>
 
                                     <td class="product-subtotal"><span class="amount"> {{ $details['prix'] * $details['quantite'] }}
                                         DT</span></td>
+
+                                       
                                 </div>
+                                
+                                
+                              
 
                                 <div class="fls_last">
                                     {{-- <button class="close_slide gray"><i class="ti-close"></i></button> --}}

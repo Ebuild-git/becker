@@ -4,27 +4,51 @@ namespace App\Livewire\Front;
 
 use App\Models\produits;
 use Livewire\Component;
+use App\Http\Traits\TailleProduit;
 
 class Panier extends Component
 {
     public $total =0;
+    use TailleProduit;
 
     public $quantities = [];
+    public $taille = [];
 
     public function mount()
     {
         // Initialisation des quantités depuis la session ou la base de données
         $paniers = session()->get('paniers', []);
+        $tailles = $this->getListTailleProduit(); // Appel de la fonction pour récupérer la liste des tailles
 
         foreach ($paniers as $id => $details) {
             $this->quantities[$id] = $details['quantite'];
+            $this->taille[$id] = $details['taille']; // Assuming 'taille' is the key in the cart data store
         }
     }
+public function updateTaille($id){
+    
+    if (isset($this->paniers[$id])) {
+        
+        $this->paniers[$id]['taille'] = $taille;
 
+        session()->put('cart', $this->paniers);
+
+        // Optionally, notify the user
+      //  $this->emit('message', 'Taille mise à jour avec succès');
+   } else {
+   
+     return false;
+   }
+
+
+
+ return true;
+}
     public function render()
     {
         $paniers_session = session('cart');
         $paniers = [];
+        $taille = [];
         
         foreach ($paniers_session as $session){
             $produit = produits::find($session['id_produit']);
@@ -34,6 +58,9 @@ class Panier extends Component
                     'id_produit' => $produit->id,
                     'photo' => $produit->photo,
                     'quantite' => $session['quantite'],
+                  'taille' => $produit->taille, // Assuming 'taille' is the key in the cart data store
+
+
                     'prix' => $produit->prix,
                     'total' => $session['quantite'] * $produit->prix,
                 ];
@@ -46,7 +73,8 @@ class Panier extends Component
             }
         }
 
-        return view('livewire.front.panier', compact("paniers"));
+        $tailles = $this->getListTailleProduit();
+        return view('livewire.front.panier', compact("paniers","tailles"));
     }
 
     public function updatedQuantities($value, $id)

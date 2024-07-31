@@ -15,7 +15,7 @@
         </div>
     @endif
     <div class="row">
-        <div class="col-sm-8">
+      {{--   <div class="col-sm-8">
             <div class="form-check form-switch">
 
                 <input name="sur_devis" class="form-check-input" class="switch" type="checkbox" id="sur_devis"
@@ -25,7 +25,7 @@
                     <span class="text-danger small"> {{ $message }} </span>
                 @enderror
             </div>
-        </div>
+        </div> --}}
         <br>
         <br>
         <div class="col-sm-8">
@@ -67,6 +67,7 @@
                                         <td>
                                             <div class="form-check">
                                                 <input class="form-check-input @error('taille') is-invalid @enderror" type="checkbox" id="taille{{ $loop->parent->index }}-{{ $loop->index }}" wire:model="taille" value="{{ $taille }}">
+                                                &nbsp
                                                 <label class="form-check-label" for="taille{{ $loop->parent->index }}-{{ $loop->index }}">
                                                     {{ $taille }}
                                                 </label>
@@ -125,6 +126,7 @@
                                                     <input class="form-check-input" name="coleur" type="checkbox"
                                                         id="color{{ $loop->parent->index }}-{{ $loop->index }}"
                                                         wire:model="couleur" value="{{ $color['code'] }}">
+                                                        &nbsp &nbsp
                                                     <label class="form-check-label"
                                                         for="color{{ $loop->parent->index }}-{{ $loop->index }}">
                                                         <span class="color-swatch"
@@ -236,6 +238,31 @@
             </div>
         </div>
         <div class="col-sm-4">
+           {{--  <div class="mb-3">
+                <label for="">Photo d'illustration</label>
+                <div class="preview-produit-illustration" onclick="preview_illustration('new-prosduit')">
+                    @if ($produit)
+                        @if ($photo2 && is_null($photo))
+                            <img src="{{ Storage::url($photo2) }}" alt="" class="w-100">
+                        @else
+                            <img src="{{ $photo->temporaryUrl() }}" alt="" srcset="">
+                        @endif
+                    @else
+                        @if ($photo)
+                            <img src="{{ $photo->temporaryUrl() }}" alt="" class="w-100">
+                        @else
+                        <img src="/icons/no-image.webp" alt="" class="w-100">
+                        @endif
+                    @endif
+                </div>
+
+                <input type="file" name="photo" accept="image/*" class=" d-none" id="file-input-new-prosduit"
+                    wire:model="photo">
+                @error('photo')
+                    <span class="text-danger small"> {{ $message }} </span>
+                @enderror
+            </div> --}}
+
             <div class="mb-3">
                 <label for="">Photo d'illustration</label>
                 <div class="preview-produit-illustration" onclick="preview_illustration('new-prosduit')">
@@ -283,9 +310,9 @@
     </div>
     </form>
 </div>
-<script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+{{-- <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         $('.ckeditor').ckeditor();
     });
-</script>
+</script> --}}

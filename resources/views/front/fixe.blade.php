@@ -3,7 +3,7 @@
     $config = DB::table('configs')->first();
     $service = DB::table('services')->get();
     $produit = DB::table('produits')->get();
-@endphp
+    @endphp
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -25,7 +25,7 @@
     <meta name="author" content="soukhinkhan">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {{--  <link rel="icon" href="{{ Storage::url($config->logo) }}" type="image/png" /> --}}
+      <link rel="icon" href="{{ Storage::url($config->icon) }}" type="image/png" /> 
 
     {{--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -61,7 +61,7 @@
         <!-- Top header  -->
         <!-- ============================================================== -->
         <!-- Top Header -->
-        <div class="py-2 bg-dark">
+      {{--   <div class="py-2 bg-dark">
             <div class="container">
                 <div class="row">
 
@@ -99,7 +99,7 @@
 
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <!-- Start Navigation -->
         <div class="header header-light dark-text">
@@ -577,12 +577,13 @@
 
                         <!-- Single Item -->
                         @foreach ($favoris as $key => $favori)
+                        @if($favori->produit)
                             <div class="d-flex align-items-center justify-content-between br-bottom px-3 py-3">
                                 <input type="hidden" name="id">
                                 <div class="cart_single d-flex align-items-center">
                                     <div class="cart_selected_single_thumb">
                                         <a href="#"><img
-                                                src="{{ Storage::url($favori->produit->photo) ?? ' ' }}"
+                                                src="{{ Storage::url($favori->produit->photo ?? ' ') }}"
                                                 width="60" class="img-fluid" alt="" /></a>
                                     </div>
                                     <div class="cart_single_caption pl-2">
@@ -605,6 +606,7 @@
                                 </form>
                                 </div>
                             </div>
+                            @endif
                         @endforeach
 
 
