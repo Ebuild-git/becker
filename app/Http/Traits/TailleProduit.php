@@ -13,12 +13,14 @@ trait TailleProduit
     {
         // Les couleurs et leurs codes correspondants
         $tailles = [
-           'XXL',
-           'XL',
-           'L',
-           'M',
-           'S',
-           'XS',
+          'XS',
+          'S',
+          'M',
+          'L',
+          'XL',
+          'XXL',
+
+
         ];
 
         return collect($tailles);
