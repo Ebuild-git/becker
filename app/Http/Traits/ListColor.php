@@ -25,7 +25,7 @@ trait ListColor
             ["nom" => "Fushia", "code" => "#FF00FF"],
             ["nom" => "Gris", "code" => "#808080"],
             ["nom" => "Jaune", "code" => "#FFFF00"],
-            ["nom" => "Marron", "code" => "#800000"],
+          
             ["nom" => "Noir", "code" => "#000000"],
             ["nom" => "Nude", "code" => "#F5DEB3"],
             ["nom" => "Orange", "code" => "#FFA500"],
