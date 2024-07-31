@@ -32,7 +32,7 @@ class AddProduit extends Component
             $this->stock = $produit->stock;
             $this->tags = $produit->tags;
             $this->category_id = $produit->category_id;
-            $this->marque_id = $produit->marque_id;
+        //    $this->marque_id = $produit->marque_id;
             $this->reference = $produit->reference;
             $this->prix = $produit->prix;
             $this->prix_achat = $produit->prix_achat;
@@ -57,12 +57,12 @@ class AddProduit extends Component
     public function render()
     {
         $categories = Category::all();
-        $marques = Marque::all();
+      //  $marques = Marque::all();
         $couleurs = $this->getListColor();
         $colors = $this->getListColors();
       //  dd($colors);
        $tailles = $this->getListTailleProduit();
-        return view('livewire.produits.add-produit', compact('colors','categories','marques', 'couleurs','tailles'));
+        return view('livewire.produits.add-produit', compact('colors','categories', 'couleurs','tailles'));
     }
 
 
@@ -112,7 +112,7 @@ class AddProduit extends Component
         // $produit->category = $this->category;
 
         $produit->category_id = $this->category_id;
-        $produit->marque_id = $this->marque_id;
+      //  $produit->marque_id = $this->marque_id;
         $produit->couleur = $this->couleur;
         $produit->taille = $this->taille;
 
@@ -153,7 +153,7 @@ class AddProduit extends Component
                 'prix_achat' => 'nullable|numeric',
                 'photo' => 'nullable|image|mimes:jpg,jpeg,png,webp',
                 'photos.*' => 'nullable|image|mimes:jpg,jpeg,png,webp',
-                'marque_id' => 'nullable|integer|exists:marques,id',
+            //    'marque_id' => 'nullable|integer|exists:marques,id',
                 'sur_devis'=>'nullable',
                 'couleur' => 'nullable|max:2000',
                 'taille' => 'nullable|max:2000',
@@ -171,7 +171,7 @@ class AddProduit extends Component
         
             $this->produit->prix = $this->prix;
             $this->produit->prix_achat = $this->prix_achat;
-            $this->produit->marque_id = $this->marque_id;
+          ///  $this->produit->marque_id = $this->marque_id;
 
             if ($this->photo) {
                 //delete old photo

@@ -30,6 +30,7 @@ function AddToCart(id) {
     var data = {
         id_produit: id,
         quantite: quantity,
+        
         _token: csrfToken,
     };
     fetch("/client/ajouter_au_panier", {
@@ -70,7 +71,7 @@ function DeleteToCart(id) {
             if (status) {
                 if (data.statut) {
                     get_panier();
-                    location.reload();
+                  //  location.reload();
                    // get_panier();
 
                 } else {

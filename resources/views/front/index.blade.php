@@ -586,7 +586,7 @@
                                                         @foreach ($produit->taille as $taille)
                                                             <div
                                                                 class="form-check size-option form-option form-check-inline mb-2">
-                                                                <input class="form-check-input" type="checkbox"
+                                                                <input class="form-check-input" type="checkbox" name="
                                                                     name="taille" id="taille_{{ $taille }}"checked="">
                                                                 <label class="form-option-label"
                                                                     for="28">{{ $taille }}</label>
