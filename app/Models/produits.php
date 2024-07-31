@@ -103,10 +103,7 @@ class produits extends Model
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
-    public function marques()
-    {
-        return $this->belongsTo(Marque::class, 'marque_id', 'id');
-    }
+  
 
 
 

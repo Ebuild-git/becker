@@ -12,7 +12,7 @@ class HomeComposer
     {
         $view->with([
             'categories' => Category::has('produits')->take(4)->get(), 
-            'marques' =>Marque::has('produits')->take(6)->get(), /// Pour le home page
+        //    'marques' =>Marque::has('produits')->take(6)->get(), /// Pour le home page
             'brands' =>Marque::has('produits')->get(), // Pour le  sop page
          //  'categories'=>Category::all(),
             'configs' => config::first(),

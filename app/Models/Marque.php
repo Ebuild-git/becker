@@ -15,9 +15,4 @@ class Marque extends Model
         'image',
     
         ];
-
-    public function produits()
-    {
-        return $this->hasMany(produits::class, 'marque_id', 'id');
     }
-}
