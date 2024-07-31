@@ -48,21 +48,19 @@
 
                 <div class="col-xl-5 col-lg-6 col-md-12 col-sm-12">
                     <div class="quick_view_slide">
-                        
+
 
                         @foreach (json_decode($produit->photos) ?? [] as $photo)
-                        
-                        <div class="single_view_slide"><a href="{{ Storage::url($photo) }}"
-                                data-lightbox="roadtrip" class="d-block mb-4">
-                                
-                                <img
-                                src="{{ Storage::url($photo) }}" {{-- class="img-fluid rounded" --}}class="img-responsive m-auto"
-                                    alt="" />
-                                
+                            <div class="single_view_slide"><a href="{{ Storage::url($photo) }}" data-lightbox="roadtrip"
+                                    class="d-block mb-4">
+
+                                    <img src="{{ Storage::url($photo) }}"
+                                        {{-- class="img-fluid rounded" --}}class="img-responsive m-auto"  alt="" />
+
                                 </a>
-                                </div>
-                                    @endforeach
-  
+                            </div>
+                        @endforeach
+
                     </div>
                 </div>
 
@@ -88,24 +86,24 @@
                                             <span class="ft-bold theme-cl fs-lg mr-2">
                                                 $110
                                             </span> --}}
-                                            <span class="ft-bold fs-md text-dark">
-                                                @if ($produit->inPromotion())
-                                                    <span class=" small">
-                                                       {{--  - {{ $produit->inPromotion()->pourcentage }} % --}}
-                                                    </span>
-                                                    <b class="">
-                                                        {{ $produit->getPrice() }} DT
-                                                    </b>
-                                                    <br>
-                                                    <strike>
-                                                        <span class="text-danger small">
-                                                            {{ $produit->prix }} DT
-                                                        </span>
-                                                    </strike>
-                                                @else
-                                                    {{ $produit->getPrice() }} DT
-                                                @endif
+                                    <span class="ft-bold fs-md text-dark">
+                                        @if ($produit->inPromotion())
+                                            <span class=" small">
+                                                {{--  - {{ $produit->inPromotion()->pourcentage }} % --}}
                                             </span>
+                                            <b class="">
+                                                {{ $produit->getPrice() }} DT
+                                            </b>
+                                            <br>
+                                            <strike>
+                                                <span class="text-danger small">
+                                                    {{ $produit->prix }} DT
+                                                </span>
+                                            </strike>
+                                        @else
+                                            {{ $produit->getPrice() }} DT
+                                        @endif
+                                    </span>
                                     <br>
                                     @if ($produit->stock > 0 || $produit->sur_devis == false)
                                         <label class="badge bg-success"> Stock disponible</label>
@@ -128,16 +126,16 @@
                         <div class="prt_04 mb-2">
                             <p class="d-flex align-items-center mb-0 text-dark ft-medium">Couleur(s):</p>
                             <div class="text-left">
-                                @foreach ($produit->couleur ?? []  as $key=> $value )
-                                <div class="form-check form-option form-check-inline mb-1">
-                                    <input class="form-check-input" type="radio" name="color1"
-                                        id="white" checked="">
-                                    <label class=" card form-option-label small rounded-circle"
-                                        for="white">  <span class="form-option-color rounded-circle blc7"
-                                        style="background-color: {{ $value }} ;color:{{ $value }};">
-                                      
-                                    </span></label>
-                                </div>
+                                @foreach ($produit->couleur ?? [] as $key => $value)
+                                    <div class="form-check form-option form-check-inline mb-1">
+                                        <input class="form-check-input" type="radio" name="color1" id="white"
+                                            checked="">
+                                        <label class=" card form-option-label small rounded-circle" for="white">
+                                            <span class="form-option-color rounded-circle blc7"
+                                                style="background-color: {{ $value }} ;color:{{ $value }};">
+
+                                            </span></label>
+                                    </div>
                                 @endforeach
 
 
@@ -148,30 +146,41 @@
                             <p class="d-flex align-items-center mb-0 text-dark ft-medium">Taille(s):
                             </p>
                             <div class="text-left pb-0 pt-2">
-                                 @foreach ($produit->taille as $index=> $taille)
+                                {{-- @foreach ($produit->taille as $index => $taille)
                                     <div class="form-check size-option form-option form-check-inline mb-2">
-                                        <input class="form-check-input" type="radio" name="size" id="size-{{ $index }}" value="{{ $taille }}"  {{ $loop->first ? 'checked' : '' }}
-                                            checked="">
-                                        <label class="form-option-label" for="size-{{ $index }}">{{ $taille }}</label>
-                                @endforeach 
-                               {{--  <select wire:model="paniers.{{ $id }}.taille" wire:change="updateTaille({{ $id }}, $event.target.value)">
-                                    @foreach($tailles as $taille)
+                                        <input class="form-check-input" type="radio" name="size"
+                                            id="size-{{ $index }}" value="{{ $taille }}"
+                                            {{ $loop->first ? 'checked' : '' }} checked="">
+                                        <label class="form-option-label"
+                                            for="size-{{ $index }}">{{ $taille }}</label>
+                                @endforeach --}}
+                                @foreach ($produit->taille as $taille)
+                                <div
+                                    class="form-check size-option form-option form-check-inline mb-2">
+                                    <input class="form-check-input" type="radio" 
+                                        name="taille" id="taille_{{ $taille }}">
+                                    <label class="form-option-label"
+                                        for="28">{{ $taille }}</label>
+                                </div>
+                            @endforeach
+                                {{--  <select wire:model="paniers.{{ $id }}.taille" wire:change="updateTaille({{ $id }}, $event.target.value)">
+                                    @foreach ($tailles as $taille)
                                         <option value="{{ $taille }}" {{ $taille == $details['taille'] ? 'selected' : '' }}>{{ $taille }}</option>
                                     @endforeach
                                 </select> --}}
                             </div>
 
-                          
+
 
                         </div>
-                      
+
 
                         <div class="prt_05 mb-4">
                             <div class="form-row mb-7">
-                               
+
                                 <div class="col-12 col-lg-auto">
                                     <br>
-                             
+
                                     <div class="quantity">
                                         Quantité:
                                         <div class="quantity__group">
