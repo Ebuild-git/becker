@@ -8,7 +8,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title> @yield('titre') - (Admin) {{ config('app.name') }}</title>
+    <title> @yield('titre') - (Admin)  BECKER {{-- {{ config('app.name') }} --}}</title>
     <!--favicon-->
     <link rel="icon" href="{{ Storage::url($config->logo) }}" type="image/png" />
     <!--plugins-->
