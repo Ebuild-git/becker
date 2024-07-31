@@ -13,10 +13,10 @@ class HomeComposer
         $view->with([
             'categories' => Category::has('produits')->take(4)->get(), 
         //    'marques' =>Marque::has('produits')->take(6)->get(), /// Pour le home page
-            'brands' =>Marque::has('produits')->get(), // Pour le  sop page
+           // 'brands' =>Marque::has('produits')->get(), // Pour le  sop page
          //  'categories'=>Category::all(),
             'configs' => config::first(),
-            'services'=>Service::all(),
+          //  'services'=>Service::all(),
             'produit'=>produits::all(),
             'favoris'=>Favoris::where('id_produit', '!=', null)
             ->where('id_user', auth()->id() )->get(),
