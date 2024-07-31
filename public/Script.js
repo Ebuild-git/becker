@@ -45,7 +45,7 @@ function AddToCart(id) {
             if (data.statut) {
                 sweet_alert("Félicitation", "success", data.message, 1500);
                 get_panier();
-               // location.reload();
+                location.reload();
                 
                 
             } else {
@@ -70,7 +70,7 @@ function DeleteToCart(id) {
             if (status) {
                 if (data.statut) {
                     get_panier();
-                   // location.reload();
+                    location.reload();
                    // get_panier();
 
                 } else {
