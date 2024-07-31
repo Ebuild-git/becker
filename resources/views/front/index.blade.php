@@ -587,7 +587,7 @@
                                                             <div
                                                                 class="form-check size-option form-option form-check-inline mb-2">
                                                                 <input class="form-check-input" type="radio"
-                                                                    name="size" id="28" checked="">
+                                                                    name="taille" id="taille" checked="">
                                                                 <label class="form-option-label"
                                                                     for="28">{{ $taille }}</label>
                                                             </div>
@@ -603,14 +603,12 @@
                                                         <div class="col-12 col-lg-auto">
                                                             <!-- Quantity -->
                                                             <div class="quantity">
+                                                                Quantité:
                                                                 <div class="quantity__group">
-                                                                    <span class="quantity-control minus"><i
-                                                                            class="far fa-minus"></i></span>
-                                                                    <input type="number" class="input-text qty text"
-                                                                        name="quantite" value="1"
-                                                                        id="qte-{{ $produit->id }}" autocomplete="off">
-                                                                    <span class="quantity-control plus"><i
-                                                                            class="far fa-plus"></i></span>
+                                                                    <span class="quantity-control minus"><i class="far fa-minus"></i></span>
+                                                                    <input type="number" class="input-text qty text" name="quantite"
+                                                                        value="1" id="qte-{{ $produit->id }}" autocomplete="off">
+                                                                    <span class="quantity-control plus"><i class="far fa-plus"></i></span>
                                                                 </div>
                                                             </div>
                                                             <style>
@@ -618,34 +616,34 @@
                                                                     display: flex;
                                                                     align-items: center;
                                                                 }
-
+                        
                                                                 .quantity__group {
                                                                     display: flex;
                                                                     align-items: center;
                                                                 }
-
+                        
                                                                 .quantity-control {
                                                                     cursor: pointer;
                                                                     padding: 5px;
                                                                     font-size: 1.2em;
                                                                 }
-
+                        
                                                                 .quantity-control.minus {
                                                                     color: red;
                                                                     /* Change color as needed */
                                                                 }
-
+                        
                                                                 .quantity-control.plus {
                                                                     color: green;
                                                                     /* Change color as needed */
                                                                 }
-
+                        
                                                                 .input-text.qty {
-                                                                    width: 100px;
+                                                                    width: 70px;
                                                                     text-align: center;
                                                                     border: 1px solid #ccc;
                                                                     margin: 0 5px;
-                                                                    font-size: 2.5em;
+                                                                    font-size: 1.5em;
                                                                 }
                                                             </style>
 

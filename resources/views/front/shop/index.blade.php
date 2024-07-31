@@ -253,7 +253,9 @@
                                                     </div>
                                                     <div class="text-left">
                                                         <h5 class="fw-bolder fs-md mb-0 lh-1 mb-1"><a  href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">{{ $produit->nom }}</a></h5>
-                                                        <div class="elis_rty"><span class="ft-bold text-dark fs-sm">@if ($produit->inPromotion())
+                                                        <div class="elis_rty">
+                                                            <span class="ft-bold text-dark fs-sm">
+                                                                @if ($produit->inPromotion())
                                                             <span class=" small">
                                                                 - {{ $produit->inPromotion()->pourcentage }} %
                                                             </span>
@@ -268,7 +270,9 @@
                                                             </strike>
                                                         @else
                                                             {{ $produit->getPrice() }} DT
-                                                        @endif</span></div>
+                                                        @endif
+                                                    </span>
+                                                    </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -328,12 +332,13 @@
                                                         <div class="star-rating align-items-center d-flex justify-content-left mb-1 p-0">
                                                            
                                                         </div>
-                                                        <div class="elis_rty"><span class="ft-medium text-muted line-through fs-md mr-2">
+                                                        <div class="elis_rty">
+                                                           
                                                             @if ($produit->inPromotion())
-                                                                <span class=" small">
+                                                                <span class="small">
                                                                     - {{ $produit->inPromotion()->pourcentage }} %
                                                                 </span>
-                                                                <b class="text-success">
+                                                                <b class="">
                                                                     {{ $produit->getPrice() }} DT
                                                                 </b>
                                                                 <br>
@@ -386,8 +391,8 @@
                                                     <div class="text-left pb-0 pt-2">
                                                         @foreach ($produit->taille as $taille)
                                                         <div class="form-check size-option form-option form-check-inline mb-2">
-                                                            <input class="form-check-input" type="radio" name="size" id="28" checked="">
-                                                            <label class="form-option-label" for="28">{{ $taille }}</label>
+                                                            <input class="form-check-input" type="radio" name="taille" id="taille" checked="">
+                                                            <label class="form-option-label" for="taille">{{ $taille }}</label>
                                                         </div>
                                                         @endforeach
                                                    
@@ -399,15 +404,12 @@
                                                         <div class="col-12 col-lg-auto">
                                                             <!-- Quantity -->
                                                             <div class="quantity">
+                                                                Quantité:
                                                                 <div class="quantity__group">
-                                                                    <span class="quantity-control minus"><i
-                                                                            class="far fa-minus"></i></span>
-                                                                    <input type="number" class="input-text qty text"
-                                                                        name="quantite" value="1"
-                                                                        id="qte-{{ $produit->id }}"
-                                                                        autocomplete="off">
-                                                                    <span class="quantity-control plus"><i
-                                                                            class="far fa-plus"></i></span>
+                                                                    <span class="quantity-control minus"><i class="far fa-minus"></i></span>
+                                                                    <input type="number" class="input-text qty text" name="quantite"
+                                                                        value="1" id="qte-{{ $produit->id }}" autocomplete="off">
+                                                                    <span class="quantity-control plus"><i class="far fa-plus"></i></span>
                                                                 </div>
                                                             </div>
                                                             <style>
@@ -415,37 +417,36 @@
                                                                     display: flex;
                                                                     align-items: center;
                                                                 }
-
+                        
                                                                 .quantity__group {
                                                                     display: flex;
                                                                     align-items: center;
                                                                 }
-
+                        
                                                                 .quantity-control {
                                                                     cursor: pointer;
                                                                     padding: 5px;
                                                                     font-size: 1.2em;
                                                                 }
-
+                        
                                                                 .quantity-control.minus {
                                                                     color: red;
                                                                     /* Change color as needed */
                                                                 }
-
+                        
                                                                 .quantity-control.plus {
                                                                     color: green;
                                                                     /* Change color as needed */
                                                                 }
-
+                        
                                                                 .input-text.qty {
-                                                                    width: 100px;
+                                                                    width: 70px;
                                                                     text-align: center;
                                                                     border: 1px solid #ccc;
                                                                     margin: 0 5px;
-                                                                    font-size: 2.5em;
+                                                                    font-size: 1.5em;
                                                                 }
                                                             </style>
-
                                                         </div>
                                                         <div class="col-12 col-lg">
                                                             <!-- Submit -->
