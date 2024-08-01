@@ -178,7 +178,7 @@
 
                                     <div class="quantity">
                                         Quantité:
-                                        <div class="quantity__group">
+                                        <div class="quantity__group " >
                                             <span class="quantity-control minus"><i class="far fa-minus"></i></span>
                                             <input type="number" class="input-text qty text" name="quantite"
                                                 value="1" id="qte-{{ $produit->id }}" autocomplete="off">
@@ -189,11 +189,17 @@
                                         .quantity {
                                             display: flex;
                                             align-items: center;
+                                            position: relative;
+                                            top: -5px;
+                                            transform: translateY(-5px); 
                                         }
 
                                         .quantity__group {
                                             display: flex;
+                                            position: relative;
                                             align-items: center;
+                                            top: -4px
+                                            
                                         }
 
                                         .quantity-control {
@@ -214,6 +220,7 @@
 
                                         .input-text.qty {
                                             width: 70px;
+                                            text-align: center;
                                             text-align: center;
                                             border: 1px solid #ccc;
                                             margin: 0 5px;
