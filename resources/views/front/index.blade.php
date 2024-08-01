@@ -625,7 +625,50 @@
                                                                     <span class="quantity-control plus"><i class="far fa-plus"></i></span>
                                                                 </div>
                                                             </div>
+
                                                             <style>
+                                                                .quantity {
+                                                                    display: flex;
+                                                                    align-items: center;
+                                                                    position: relative;
+                                                                    top: 2px;
+                                                                    transform: translateY(2px); 
+                                                                }
+                        
+                                                                .quantity__group {
+                                                                    display: flex;
+                                                                    position: relative;
+                                                                    align-items: center;
+                                                                    top: 2px
+                                                                    
+                                                                }
+                        
+                                                                .quantity-control {
+                                                                    cursor: pointer;
+                                                                    padding: 5px;
+                                                                    font-size: 1.2em;
+                                                                }
+                        
+                                                                .quantity-control.minus {
+                                                                    color: red;
+                                                                    /* Change color as needed */
+                                                                }
+                        
+                                                                .quantity-control.plus {
+                                                                    color: green;
+                                                                    /* Change color as needed */
+                                                                }
+                        
+                                                                .input-text.qty {
+                                                                    width: 70px;
+                                                                    text-align: center;
+                                                                    text-align: center;
+                                                                    border: 1px solid #ccc;
+                                                                    margin: 0 5px;
+                                                                    font-size: 1.5em;
+                                                                }
+                                                            </style>
+                                                         {{--    <style>
                                                                 .quantity {
                                                                     display: flex;
                                                                     align-items: center;
@@ -659,7 +702,7 @@
                                                                     margin: 0 5px;
                                                                     font-size: 1.5em;
                                                                 }
-                                                            </style>
+                                                            </style> --}}
 
                                                         </div>
                                                         <div class="col-12 col-lg">
