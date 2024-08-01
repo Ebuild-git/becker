@@ -91,7 +91,7 @@
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <div class="form-group">
                                         <label class="text-dark">Gouvernorat</label>
-                                        <select class="custom-select">
+                                        <select name="gouvernorat" class="custom-select">
                                             <option value="">Gouvernorat</option>
                                             @foreach ($gouvernorats as $gouvernorat)
                                                 <option value="{{ $gouvernorat }}">

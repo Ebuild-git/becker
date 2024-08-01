@@ -176,6 +176,8 @@ if($connecte){
     'password' => Hash::make($request->input('phone')),
    'adresse' => $request->input('adresse'),
     'phone' => $request->input('phone'),
+  //  'gouvernorat' => $request->input('gouvernorat'),
+ 
   ]);
 
 
