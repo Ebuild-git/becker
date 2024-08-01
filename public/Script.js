@@ -23,7 +23,8 @@ function AddToCart(id) {
     } else {
         var quantity = 1;
     }
-
+   var selectedSize = document.querySelector('input[name="taille"]:checked');
+   // var size = selectedSize.value;
     var csrfToken = document
         .querySelector('meta[name="csrf-token"]')
         .getAttribute("content");
@@ -32,7 +33,9 @@ function AddToCart(id) {
         quantite: quantity,
         
         _token: csrfToken,
+     //   taille: size,
     };
+   
     fetch("/client/ajouter_au_panier", {
         method: "POST",
         headers: {

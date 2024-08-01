@@ -482,6 +482,13 @@
 
                                         <div class="quick_view_thmb">
                                             <div class="quick_view_slide">
+                                                <a  href="{{ Storage::url($produit->photo) }}"  data-lightbox="roadtrip"
+                                                    class="d-block mb-4">
+                            
+                                                    <img src="{{ Storage::url($produit->photo) }}"
+                                                        {{-- class="img-fluid rounded" --}}class="img-responsive m-auto"  alt="" />
+                            
+                                                </a>
                                                 @foreach (json_decode($produit->photos) ?? [] as $photo)
                                                     <div class="single_view_slide"> <img class="img-responsive m-auto"
                                                             src="{{ Storage::url($photo) }}" alt=""></div>

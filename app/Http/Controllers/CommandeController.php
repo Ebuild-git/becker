@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-
+use Exception;
 use App\Http\Requests\commandes\CommandesRequest;
 use Illuminate\Http\Request;
 use App\Models\{commandes, produits, contenu_commande, config, notifications, User};
@@ -22,7 +22,7 @@ use App\Notifications\NewOrder;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Contracts\Mail\Mailable;
-use App\Services\PayUService\Exception;
+//use App\Services\PayUService\Exception;
 use Illuminate\Validation\ValidationException;
 use App\Http\Traits\TailleProduit;
 
@@ -80,19 +80,6 @@ class CommandeController extends Controller
     return view('front.commandes.checkout', compact('configs', 'paniers', 'total','gouvernorats','tailles'));
   }
 
-/* 
-  public function devis($id)
-  {
-    $configs = config::firstOrFail();
-    $produit =produits:: findOrFail($id);
-   
-   $gouvernorats = $this->getListGouvernorat();
-
-    return view('front.commandes.devis', compact('configs','produit','gouvernorats'));
-
-  }
- */
- 
 
 
 
@@ -209,7 +196,13 @@ if($connecte){
 
     foreach ($paniers_session as $session) {
       $produit = produits::find($session['id_produit']);
-      $taille = [];
+    //  dd($produit);
+      //$taille = [];
+    $taille = $this->getListTailleProduit($produit->taille);
+    //  $selectedTaille = $session['taille'] ?? null;
+    
+   
+     // dd($taille);
       if ($produit) {
 
         $items=   contenu_commande::create([
@@ -217,10 +210,10 @@ if($connecte){
           'id_produit' => $produit->id,
           'prix_unitaire' => $produit->prix,
           'quantite' => $session['quantite'],
-          'taille' => $produit['taille'],
+          'taille' => $taille,
           
         ]);
-
+//dd($items);
 
         $produit->diminuer_stock($session['quantite']);
         
@@ -228,11 +221,11 @@ if($connecte){
       }
     }
 
-    //envoyer les emails
+   
       $this->sendOrderConfirmationMail($order);
      
     //effacer le panier
-   session()->forget('cart');
+  // session()->forget('cart');
 
     //generate notification
     $notification = new notifications();
@@ -254,7 +247,18 @@ if($connecte){
   public function sendOrderConfirmationMail($order)
   {
    
+     // Mail::to($order->email)->send(new OrderMail($order));
+
+     try {
       Mail::to($order->email)->send(new OrderMail($order));
+  } catch (Exception $e) {
+      // Log the error or handle it accordingly
+      // For example, log the error message
+      \Log::error('Failed to send order confirmation email: ' . $e->getMessage());
+
+      // Optionally, you can return a response or throw an exception
+      return response()->json(['error' => 'Unable to send order confirmation email.'], 500);
+  }
    
   }
 

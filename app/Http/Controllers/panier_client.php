@@ -95,6 +95,7 @@ class panier_client extends Controller
         $id_produit = $request->input('id_produit');
         $type = $request->input('type', 'produit');
         $quantite = $request->input('quantite', 1);
+        $taille = $request->input('taille');
 
         $user = Auth::user();
 
@@ -155,6 +156,7 @@ class panier_client extends Controller
             $panier[] = [
                 'id_produit' => $id_produit,
                 'quantite' => $quantite,
+                'taille' => $taille,
             ];
         }
 

@@ -18,11 +18,11 @@ class Panier extends Component
     {
         // Initialisation des quantités depuis la session ou la base de données
         $paniers = session()->get('paniers', []);
-        $tailles = $this->getListTailleProduit(); // Appel de la fonction pour récupérer la liste des tailles
+        $tailles = $this->getListTailleProduit(); 
 
         foreach ($paniers as $id => $details) {
             $this->quantities[$id] = $details['quantite'];
-            $this->taille[$id] = $details['taille']; // Assuming 'taille' is the key in the cart data store
+            $this->taille[$id] = $details['taille']; 
         }
     }
 public function updateTaille($id){
@@ -49,16 +49,18 @@ public function updateTaille($id){
         $paniers_session = session('cart');
         $paniers = [];
         $taille = [];
-        
+      //  dd($paniers_session);
         foreach ($paniers_session as $session){
             $produit = produits::find($session['id_produit']);
+            $selectedTaille = $session['taille'] ?? null;
+         //   dd( $selectedTaille);
             if($produit){
                 $paniers[]=[
                     'nom' => $produit->nom,
                     'id_produit' => $produit->id,
                     'photo' => $produit->photo,
                     'quantite' => $session['quantite'],
-                  'taille' => $produit->taille, // Assuming 'taille' is the key in the cart data store
+                  'taille' => $selectedTaille, 
 
 
                     'prix' => $produit->prix,
@@ -66,13 +68,13 @@ public function updateTaille($id){
                 ];
                 $this->total += $session['quantite'] * $produit->prix;
               // $total  += $paniers['quantite'] * $produit->prix;
-              //  dd($paniers);
+             //  dd($paniers);
               
             }else{
                 $this->delete($session['id_produit']);
             }
         }
-
+//dd($paniers);
         $tailles = $this->getListTailleProduit();
         return view('livewire.front.panier', compact("paniers","tailles"));
     }

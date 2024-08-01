@@ -48,7 +48,13 @@
 
                 <div class="col-xl-5 col-lg-6 col-md-12 col-sm-12">
                     <div class="quick_view_slide">
+                        <a  href="{{ Storage::url($produit->photo) }}"  data-lightbox="roadtrip"
+                        class="d-block mb-4">
 
+                        <img src="{{ Storage::url($produit->photo) }}"
+                            {{-- class="img-fluid rounded" --}}class="img-responsive m-auto"  alt="" />
+
+                    </a>
 
                         @foreach (json_decode($produit->photos) ?? [] as $photo)
                             <div class="single_view_slide"><a href="{{ Storage::url($photo) }}" data-lightbox="roadtrip"
@@ -146,33 +152,24 @@
                             <p class="d-flex align-items-center mb-0 text-dark ft-medium">Taille(s):
                             </p>
                             <div class="text-left pb-0 pt-2">
-                                {{-- @foreach ($produit->taille as $index => $taille)
-                                    <div class="form-check size-option form-option form-check-inline mb-2">
-                                        <input class="form-check-input" type="radio" name="size"
-                                            id="size-{{ $index }}" value="{{ $taille }}"
-                                            {{ $loop->first ? 'checked' : '' }} checked="">
-                                        <label class="form-option-label"
-                                            for="size-{{ $index }}">{{ $taille }}</label>
-                                @endforeach --}}
+                             
                                 @foreach ($produit->taille as $taille)
                                 <div
                                     class="form-check size-option form-option form-check-inline mb-2">
-                                    <input class="form-check-input" type="radio" 
-                                    {{ $loop->first ? 'checked' : '' }}    name="taille" id="taille_{{ $taille }}" checked>
+                                    <input  type="radio" class="form-check-input"  name="taille" value="{{ $taille }}"
+                                    id="taille-{{ $taille }}" radio="">
                                     <label class="form-option-label"
-                                        for="28">{{ $taille }}</label>
+                                        for="taille">{{ $taille }}</label>
                                 </div>
                             @endforeach
-                                {{--  <select wire:model="paniers.{{ $id }}.taille" wire:change="updateTaille({{ $id }}, $event.target.value)">
-                                    @foreach ($tailles as $taille)
-                                        <option value="{{ $taille }}" {{ $taille == $details['taille'] ? 'selected' : '' }}>{{ $taille }}</option>
-                                    @endforeach
-                                </select> --}}
+                             
                             </div>
 
 
 
                         </div>
+
+                       
 
 
                         <div class="prt_05 mb-4">
