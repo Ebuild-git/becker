@@ -225,7 +225,7 @@ if($connecte){
       $this->sendOrderConfirmationMail($order);
      
     //effacer le panier
-  // session()->forget('cart');
+   session()->forget('cart');
 
     //generate notification
     $notification = new notifications();
