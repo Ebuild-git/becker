@@ -18,13 +18,22 @@ function ShowProduitModal(id) {
 
 function AddToCart(id) {
     var quantityElement = $("#qte-" + id);
+    var tailletElement = $("#taille-" + id); 
+   
+   var selectedTaille = $('input[name="taille"]:checked').val();
+
+  
+   if (!selectedTaille) {
+       alert("Veuillez sélectionner une taille.");
+       return;
+   }
+
     if (quantityElement.length) {
         var quantity = quantityElement.val();
     } else {
         var quantity = 1;
     }
-   var selectedSize = document.querySelector('input[name="taille"]:checked');
-   // var size = selectedSize.value;
+
     var csrfToken = document
         .querySelector('meta[name="csrf-token"]')
         .getAttribute("content");
@@ -33,7 +42,9 @@ function AddToCart(id) {
         quantite: quantity,
         
         _token: csrfToken,
-     //   taille: size,
+       // taille: taille,
+        taille: selectedTaille,
+    
     };
    
     fetch("/client/ajouter_au_panier", {
@@ -48,8 +59,10 @@ function AddToCart(id) {
         .then((data) => {
             if (data.statut) {
                 sweet_alert("Félicitation", "success", data.message, 1500);
+            
                 get_panier();
-                location.reload();
+             //   location.reload();
+             console.log(data);
                 
                 
             } else {
@@ -73,6 +86,7 @@ function DeleteToCart(id) {
         function (data, status) {
             if (status) {
                 if (data.statut) {
+                  
                     get_panier();
                   //  location.reload();
                    // get_panier();
@@ -92,7 +106,7 @@ get_panier();
 function get_panier() {
     $.get("/client/count_panier", function (data, status) {
         if (status) {
-           // console.log(data);
+            console.log(data.list);
             $("#count-panier-span").text(data.total);
             $("#list_content_panier").html(data.list);
             $("#montant_total_panier").html(data.montant_total + " DT");
@@ -124,13 +138,7 @@ function AddFavoris(id) {
                 sweet_alert("Félicitation", "success", data.message, 1500);
                 location.reload();
 
-              // const button = document.getElementById(`favoris-button-${data}`);
-             //  button.classList.remove('btn_love');
-             // button.classList.add('btn-danger'); // Change 'btn-danger' to your desired class for red color
-            //  button.innerHTML = '<i class="lni lni-heart-filled mr-2"></i> Added to Favorites';
-
-          //    const button = document.getElementById(`favoris-button-${data}`);
-           // button.classList.add('favoris-added');
+         
             
             
             } else {
@@ -191,7 +199,7 @@ $(document).ready(function () {
 
    
    // filter items on button click for the categories  on the homepage
-   $filter.each(function() {
+ /*   $filter.each(function() {
        $filter.on('click', 'button', function() {
            var filterValue = $(this).attr('data-filter');
            $topeContainer.isotope({
@@ -199,7 +207,7 @@ $(document).ready(function () {
            });
        });
 
-   });
+   }); */
 
 ////////////////////////////////////////////////////////////////
 

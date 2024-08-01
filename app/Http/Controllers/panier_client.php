@@ -120,14 +120,6 @@ class panier_client extends Controller
             ]);
         }
 
-         //si l'user est un grossite on ajute sa quantite si il a prix moind de la quantite_minimal_grossiste	
-         if ($user && $user->role == "grossiste") {
-            if ($quantite < $produit->quantite_minimal_grossiste) {
-                $quantite = $produit->quantite_minimal_grossiste ;
-            }
-        }else{
-            $quantite = $request->input('quantite', 1);
-        }
 
 
         //verifier que le stock demander est disponible
@@ -144,13 +136,24 @@ class panier_client extends Controller
         $panier = session('cart', []);
         $produit_existe = false;
 
-        foreach ($panier as &$item) {
+      /*   foreach ($panier as &$item) {
             if ($item['id_produit'] == $id_produit) {
                 $item['quantite'] += $quantite;
                 $produit_existe = true;
                 break;
             }
+        } */
+
+
+
+        foreach ($panier as &$item) {
+            if ($item['id_produit'] == $id_produit && $item['taille'] == $taille) {
+                $item['quantite'] += $quantite;
+                $produit_existe = true;
+                break;
+            }
         }
+
 
         if (!$produit_existe) {
             $panier[] = [

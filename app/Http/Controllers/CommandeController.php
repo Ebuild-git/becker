@@ -69,7 +69,7 @@ class CommandeController extends Controller
           'total' => $session['quantite'] * $produit->prix,
         ];
         $total += $session['quantite'] * $produit->prix;
-       //dd($total);
+      
       }
     }
    
@@ -94,8 +94,7 @@ class CommandeController extends Controller
       'photo' => 'nullable|image|mimes:jpg,jpeg,png,webp',
      
         'phone' => 'required',
-    // 'frais' => 'required',
-
+  
     ]); 
 
 
@@ -141,7 +140,7 @@ if($connecte){
 
   $order = new commandes([
 
-  ///  'user_id' => auth()->user()->id,
+ 
      'nom' => $request->input('nom'),
      'prenom' => $request->input('prenom'),
      'email' => $request->input('email'),
@@ -165,7 +164,7 @@ if($connecte){
 
    ];
 }
-//  dd($order);
+
 
     $order->save();
 
@@ -196,13 +195,8 @@ if($connecte){
 
     foreach ($paniers_session as $session) {
       $produit = produits::find($session['id_produit']);
-    //  dd($produit);
-      //$taille = [];
-    $taille = $this->getListTailleProduit($produit->taille);
-    //  $selectedTaille = $session['taille'] ?? null;
-    
-   
-     // dd($taille);
+      $taille = $session['taille'] ?? ''; 
+  
       if ($produit) {
 
         $items=   contenu_commande::create([
@@ -210,10 +204,14 @@ if($connecte){
           'id_produit' => $produit->id,
           'prix_unitaire' => $produit->prix,
           'quantite' => $session['quantite'],
-          'taille' => $taille,
+          'taille' => $taille, 
+
+      
+        
           
         ]);
-//dd($items);
+      
+
 
         $produit->diminuer_stock($session['quantite']);
         
@@ -252,11 +250,10 @@ if($connecte){
      try {
       Mail::to($order->email)->send(new OrderMail($order));
   } catch (Exception $e) {
-      // Log the error or handle it accordingly
-      // For example, log the error message
+  
       \Log::error('Failed to send order confirmation email: ' . $e->getMessage());
 
-      // Optionally, you can return a response or throw an exception
+   
       return response()->json(['error' => 'Unable to send order confirmation email.'], 500);
   }
    

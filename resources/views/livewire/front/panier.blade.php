@@ -30,26 +30,12 @@
 
                                     <div class="col"><h4 class="fs-md ft-medium mb-3 lh-1">Taille</h4></div>
                                     <div class="col">
-                                        {{-- <select wire:model="taille" wire:update="updateTaille({{ $details['id_produit'] }})">
-                                            
-                                             @foreach($tailles  as $taille)
-                                             <option value="{{$taille}}" {{ $taille == $taille ?'selected' : '' }}>{{ $taille }}</option>
-                                             @endforeach
+                                   
+                                        
+                                    
+                                      {{ $details['taille'] }}
 
-
-                                        </select> --}}
-                                         <select wire:model="tailles.{{ $id }}" wire:change="updateTaille({{ $id }})">
-                                            @foreach($tailles ?? [] as $taille)
-                                                <option value="{{ $taille }}" {{ $taille == $details['taille'] ? 'selected' : '' }}>{{ $taille }}</option>
-                                            @endforeach
-                                        </select>  
-
-                                 {{--        @foreach ($details->taille ?? [] as $index=> $taille)
-                                    <div class="form-check size-option form-option form-check-inline mb-2">
-                                        <input class="form-check-input" type="radio" name="size" id="size-{{ $index }}" value="{{ $taille }}"  {{ $loop->first ? 'checked' : '' }}
-                                            checked="">
-                                        <label class="form-option-label" for="size-{{ $index }}">{{ $taille }}</label>
-                                @endforeach --}}
+                               
                                     </div>
                                    </div>
 

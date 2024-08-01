@@ -150,9 +150,9 @@
                             <div class="text-left pb-0 pt-2">
                                  @foreach ($produit->taille as $index=> $taille)
                                     <div class="form-check size-option form-option form-check-inline mb-2">
-                                        <input class="form-check-input" type="radio" name="size" id="size-{{ $index }}" value="{{ $taille }}"  {{ $loop->first ? 'checked' : '' }}
+                                        <input class="form-check-input" type="radio" name="size" id="taille-{{ $index }}" value="{{ $taille }}"  {{ $loop->first ? 'checked' : '' }}
                                             checked="">
-                                        <label class="form-option-label" for="size-{{ $index }}">{{ $taille }}</label>
+                                        <label class="form-option-label" for="taille-{{ $index }}">{{ $taille }}</label>
                                 @endforeach 
                                {{--  <select wire:model="paniers.{{ $id }}.taille" wire:change="updateTaille({{ $id }}, $event.target.value)">
                                     @foreach($tailles as $taille)

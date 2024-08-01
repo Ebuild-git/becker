@@ -82,10 +82,7 @@
                                                             height="40" class="rounded shadow" alt="photo">
                                                     @endif
                                                 </td>
-                                                <td>
-                                                    
-                                                 {{ $contenu->taille }}  
-                                                </td>
+                                               
                                                 <td>
                                                     @if ($contenu->type == 'produit')
                                                         {{ $contenu->produit->nom }}
@@ -93,6 +90,10 @@
                                                         {{ $contenu->pack->nom }}
                                                     @endif
                                                 </td>
+                                                <td>
+                                                    
+                                                    {{ $contenu->taille }}  
+                                                   </td>
                                                 <td>
                                                     <b class="text-capitalize">
                                                         {{ $contenu->type }}

@@ -18,6 +18,7 @@ protected $table ='contenu_commandes';
         'prix',
         'quantity',
         'benefice',
+        'taille',
     ];
 
     public function produits(){

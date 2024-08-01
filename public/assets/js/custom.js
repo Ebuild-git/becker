@@ -204,14 +204,11 @@ $(function() {
 	}); */
 
 	function AddFavoris(id) {
-		// Ajout du produit aux favoris (vous pouvez implémenter cette logique)
-		// ...
+		
 	
-		// Changer la couleur de l'icône
 		const button = document.getElementById(`favoris-button-${id}`);
 		button.classList.add('favoris-added')
 	
-		// Afficher la notification Snackbar
 		Snackbar.show({
 			text: 'Le produit est ajouté au favori avec succès!!',
 			pos: 'top-right',

@@ -153,13 +153,11 @@
                             </p>
                             <div class="text-left pb-0 pt-2">
                              
-                                @foreach ($produit->taille as $taille)
-                                <div
-                                    class="form-check size-option form-option form-check-inline mb-2">
-                                    <input  type="radio" class="form-check-input"  name="taille" value="{{ $taille }}"
-                                    id="taille-{{ $taille }}" radio="">
-                                    <label class="form-option-label"
-                                        for="taille">{{ $taille }}</label>
+                                @foreach ($produit->taille as $index => $taille)
+                                <div class="form-check size-option form-option form-check-inline mb-2">
+                                    <input type="radio" class="form-check-input" name="taille" value="{{ $taille }}"
+                                           id="taille-{{ $produit->id }}-{{ $index }}" {{ $loop->first ? 'checked' : '' }}>
+                                    <label class="form-option-label" for="taille-{{ $produit->id }}-{{ $index }}">{{ $taille }}</label>
                                 </div>
                             @endforeach
                              
@@ -225,6 +223,7 @@
 
 
                                 </div>
+                                <br><br>
                                 <div class="col-12 col-lg">
                                     <!-- Submit -->
                                     <button type="submit" onclick="AddToCart( {{ $produit->id }} )"
