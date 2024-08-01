@@ -38,6 +38,9 @@
     <!-- Custom CSS -->
     <link href="/assets/css/styles.css" rel="stylesheet">
 
+    <script src="https://cdn.example.com/library.js" integrity="sha384-...base64hash..." crossorigin="anonymous"></script>
+
+
     @yield('SEO')
 </head>
 
@@ -70,58 +73,55 @@
 
                         <style>
                             /* Style de base pour le conteneur de la marque */
-.nav-brand {
-    display: flex; 
-    align-items: center; 
-    text-decoration: none; 
-    padding: 0px; 
-}
+                            .nav-brand {
+                                display: flex;
+                                align-items: center;
+                                text-decoration: none;
+                                padding: 0px;
+                            }
 
-/* Style pour l'image du logo */
-.nav-brand img {
-    height: 90px; 
-    width: 80px; 
-    object-fit: contain; 
-    transition: transform 0.3s ease; 
-    margin-top: -11px; 
-}
+                            /* Style pour l'image du logo */
+                            .nav-brand img {
+                                height: 90px;
+                                width: 80px;
+                                object-fit: contain;
+                                transition: transform 0.3s ease;
+                                margin-top: -11px;
+                            }
 
-@media (max-width: 768px) {
-    .nav-brand img {
-        height: 100px; /* Taille réduite pour les mobiles */
-        width: 100px;
-        margin-top: 0; /* Réinitialisation de la marge si nécessaire */
-        padding: 10;
-        margin-left: 20px;
-       
-      
-        
-    }
-}
-
-.menu-toggle {
-    display: none; /* Masqué par défaut */
-    font-size: 2em;
-    cursor: pointer;
-    margin-left: auto; /* Pousse le menu à droite */
-}
-/* Effet de survol pour le logo */
-.nav-brand:hover img {
-    transform: scale(1.1); 
-}
-
-/* Ajustements pour le logo dans différents contextes */
-.navbar .nav-brand {
-    padding: 5px; 
-}
-
-.navbar .nav-brand img {
-    max-height: 50px; 
-}
+                            @media (max-width: 768px) {
+                                .nav-brand img {
+                                    height: 100px;
+                                    width: 100px;
+                                    margin-top: 0;
+                                    padding: 10;
+                                    margin-left: 20px;
 
 
 
+                                }
+                            }
 
+                            .menu-toggle {
+                                display: none;
+                                font-size: 2em;
+                                cursor: pointer;
+                                margin-left: auto;
+                            }
+
+                            /* Effet de survol pour le logo */
+                            .nav-brand:hover img {
+                                transform: scale(1.1);
+                            }
+
+                            /* Ajustements pour le logo dans différents contextes */
+                            .navbar .nav-brand {
+                                padding: 5px;
+                            }
+
+                            .navbar .nav-brand img {
+                                max-height: 50px;
+                            }
                         </style>
                         <div class="nav-toggle"></div>
                         <div class="mobile_nav">
@@ -542,9 +542,8 @@
                         @csrf
                         <div class="form-group">
 
-                            <input  type="search" name="search" class="form-control"
-                             value="{{ $nom ?? '' }}" placeholder="Rechercher un produit"
-                                required>
+                            <input type="search" name="search" class="form-control" value="{{ $nom ?? '' }}"
+                                placeholder="Rechercher un produit" required>
 
                         </div>
 
