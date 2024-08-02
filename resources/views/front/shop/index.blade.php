@@ -9,7 +9,7 @@
 
         
                     <!-- ======================= Shop Style 1 ======================== -->
-                    <section class="bg-cover" style="background:url(/icons/bg-shop.jpg) repeat; " {{--  data-background="/icons/bg-shop.jpg" --}}>
+                    <section class="bg-cover" style="background:url(/icons/bg-shop1.jpg) repeat; " {{--  data-background="/icons/bg-shop.jpg" --}}>
                         <div class="container">
                             <div class="row align-items-center justify-content-center">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
