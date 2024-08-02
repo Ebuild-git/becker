@@ -69,7 +69,7 @@ function AddToCart(id) {
                 
           
                 get_panier();
-//location.reload();
+location.reload();
           
                 
                 
