@@ -27,11 +27,12 @@ class panier_client extends Controller
         $montant_total = 0;
 
         foreach ($panier_temporaire as $data) {
-            $produit = produits::select('id','photo','prix','nom')->find($data['id_produit']);
+            $produit = produits::select('id','photo','prix','nom','taille')->find($data['id_produit']);
             if ($produit) {
                 
                 $list[] = [
                     '
+                  
                     <div class="d-flex align-items-center justify-content-between br-bottom px-3 py-3" >
                                 <div class="cart_single d-flex align-items-center">
                                     <div class="cart_selected_single_thumb">

@@ -264,11 +264,8 @@
                 </div>
                 <div class="right-ch-sideBar">
 
-                    <div id="list_content_panier">
-                        {{-- <div class="text-center">
-                            <h3 class="mb-0">Votre panier est vide</h3>
-                            <p>Ajoutez des produits pour continuer votre commande.</p>
-                        </div> --}}
+                    <div class="cart-item" id="list_content_panier">
+                        
                     </div>
 
                     <div class="d-flex align-items-center justify-content-between br-top br-bottom px-3 py-3">
@@ -643,9 +640,11 @@
 
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
                             <div class="footer_widget">
-                                <img src="assets/logo/blanc.png" class="img-footer small mb-2" alt="" />
-                                {{--      <img class="img-footer small mb-2" src="{{ Storage::url($config->logo) }}"
-                                    alt="Logo" height="100" width="100" /> --}}
+                                <img src="assets/logo/blanc1.png" class="img-footer small mb-2" alt="" /> 
+                                      {{-- <img class="img-footer small mb-2" src="{{ Storage::url($config->logoHeader) }}"
+                                    alt="Logo" height="100" width="100" />  --}}
+                                   
+                                   
                                 <div class="address mt-3">
                                     {{ $config->adresse ?? ' ' }}
                                 </div>
@@ -668,14 +667,15 @@
 
                         <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12">
                             <div class="footer_widget">
-                                <h4 class="widget_title">Supports</h4>
+                                <h4 class="widget_title">Réseaux sociaux</h4>
                                 <ul class="footer-menu">
-                                    <li><a href="#">Contact Us</a></li>
-                                    <li><a href="#">About Page</a></li>
-                                    <li><a href="#">Size Guide</a></li>
-                                    <li><a href="#">Shipping & Returns</a></li>
-                                    <li><a href="#">FAQ's Page</a></li>
-                                    <li><a href="#">Privacy</a></li>
+                                    <li><a href="{{ $config->facebook }}">Facebook</a></li>
+                                    <li><a href="{{ $config->instagram }}">Instagram</a></li>
+                                  
+                                    <li><a href="{{ $config->tiktok }}">TikTok</a></li>
+                                    <li><a href="{{ $config->youtube }}">Youtube</a></li>
+                                    
+                                   
                                 </ul>
                             </div>
                         </div>
@@ -720,16 +720,16 @@
 
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
                             <div class="footer_widget">
-                                <h4 class="widget_title">Subscribe</h4>
-                                <p>Receive updates, hot deals, discounts sent straignt in your inbox daily</p>
+                                <h4 class="widget_title">BECKER</h4>
+                                <p class="justify-text"  style="text-align: justify;">{{ $config->description }}</p>
                                 <div class="foot-news-last">
-                                    <div class="input-group">
+                                  {{--   <div class="input-group">
                                         <input type="text" class="form-control" placeholder="Email Address">
                                         <div class="input-group-append">
                                             <button type="button" class="input-group-text b-0 text-light"><i
                                                     class="lni lni-arrow-right"></i></button>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 {{--      <div class="address mt-3">
                             <h5 class="fs-sm text-light">Secure Payments</h5>
@@ -794,8 +794,8 @@
 
         <script>
             function openCart() {
-                //  get_panier();
-                //   location.reload();
+              
+              
                 document.getElementById("Cart").style.display = "block";
 
             }
@@ -803,7 +803,7 @@
             function closeCart() {
 
                 document.getElementById("Cart").style.display = "none";
-                //get_panier();
+        
             }
         </script>
 

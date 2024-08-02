@@ -180,20 +180,24 @@ $(function() {
 			pos: 'top-right',
 			showAction: false,
 			actionText: "Dismiss",
-			duration: 5000,
+			duration: 2000,
 			textColor: '#fff',
 			backgroundColor:'#151515'
-		}); 
+		});
+		//location.reload(); 
+		
 	}); 
+
+
 	
 	// Snackbar for wishlist Product
-/* 	$('.snackbar-wishlist').click(function() { 
+ 	$('.snackbar-wishlist').click(function() { 
 		Snackbar.show({
 			text: 'Le produit est ajouté au favori avec succèss!',
 			pos: 'top-right',
 			showAction: false,
 			actionText: "Dismiss",
-			duration: 5000,
+			duration: 2000,
 			textColor: '#fff',
 			backgroundColor: '#151515'
 
@@ -201,24 +205,9 @@ $(function() {
 	
 		 
 		 
-	}); */
+	}); 
 
-	function AddFavoris(id) {
-		
-	
-		const button = document.getElementById(`favoris-button-${id}`);
-		button.classList.add('favoris-added')
-	
-		Snackbar.show({
-			text: 'Le produit est ajouté au favori avec succès!!',
-			pos: 'top-right',
-			showAction: false,
-			duration: 5000,
-			textColor: '#fff',
-			backgroundColor: '#151515'
-		});
-	}
-	
+
 	// Attacher l'événement click aux éléments avec la classe snackbar-wishlist
 	$('.snackbar-wishlist').click(function() { 
 		const productId = $(this).data('product-id');

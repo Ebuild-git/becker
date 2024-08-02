@@ -13,6 +13,16 @@
                     @enderror
                 </div>
             </div>
+
+          {{--   <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="">Logo  Footer</label>
+                    <input type="file" wire:model="logoHeader" accept="image/*" class="form-control">
+                    @error('logoHeader')
+                        <span class="text-danger small"> {{ $message }} </span>
+                    @enderror
+                </div>
+            </div> --}}
             <div class="col-sm-6">
                 <div class="mb-3">
                     <label for="">Icone</label>
@@ -94,6 +104,25 @@
                     @enderror
                 </div>
             </div>
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="">Youtube</label>
+                    <input type="text" wire:model="youtube" step="0.1" class="form-control">
+                    @error('youtube')
+                        <span class="text-danger small"> {{ $message }} </span>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="">TikTok</label>
+                    <input type="text" wire:model="tiktok" step="0.1" class="form-control">
+                    @error('tiktok')
+                        <span class="text-danger small"> {{ $message }} </span>
+                    @enderror
+                </div>
+            </div>
+
             <div class="mb-3">
                 <label><strong>Description :</strong></label>
                 <textarea  class="ckeditor form-control" name="description"  wire:model="description"></textarea>

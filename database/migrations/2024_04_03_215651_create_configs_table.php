@@ -22,6 +22,11 @@ return new class extends Migration
             $table->string('instagram')->nullable()->default(null);
             $table->string('matricule')->nullable()->default(null);
 
+            $table->string('tiktok')->nullable()->default(null);
+            $table->string('linkedin')->nullable()->default(null);
+            $table->string('youtube')->nullable()->default(null);
+            $table->string('twitter')->nullable()->default(null);
+            $table->string('logofooter')->nullable()->default(null);
 
             $table->string('email')->nullable()->default(null);
             $table->string('description')->nullable()->default(null);

@@ -599,12 +599,20 @@
                                                                     for="28">{{ $taille }}</label>
                                                             </div>
                                                         @endforeach --}}
+                                                       
                                                         @foreach ($produit->taille as $index => $taille)
-                                                        <div class="form-check size-option form-option form-check-inline mb-2">
+                                                       {{--  <div class="form-check size-option form-option form-check-inline mb-2">
                                                             <input type="radio" class="form-check-input" name="taille" value="{{ $taille }}"
                                                                    id="taille-{{ $produit->id }}-{{ $index }}" {{ $loop->first ? 'checked' : '' }}>
                                                             <label class="form-option-label" for="taille-{{ $produit->id }}-{{ $index }}">{{ $taille }}</label>
+                                                        </div> --}}
+
+                                                        <div class="form-check size-option form-option form-check-inline mb-2">
+                                                            <input type="radio" class="form-check-input" name="taille" value="{{ $taille }}"
+                                                                   id="taille-{{ $produit->id }}-{{ $index }}">
+                                                            <label class="form-option-label" for="taille-{{ $produit->id }}-{{ $index }}">{{ $taille }}</label>
                                                         </div>
+                                                        
                                                     @endforeach
 
 
@@ -668,48 +676,14 @@
                                                                     font-size: 1.5em;
                                                                 }
                                                             </style>
-                                                         {{--    <style>
-                                                                .quantity {
-                                                                    display: flex;
-                                                                    align-items: center;
-                                                                }
-                        
-                                                                .quantity__group {
-                                                                    display: flex;
-                                                                    align-items: center;
-                                                                }
-                        
-                                                                .quantity-control {
-                                                                    cursor: pointer;
-                                                                    padding: 5px;
-                                                                    font-size: 1.2em;
-                                                                }
-                        
-                                                                .quantity-control.minus {
-                                                                    color: red;
-                                                                    /* Change color as needed */
-                                                                }
-                        
-                                                                .quantity-control.plus {
-                                                                    color: green;
-                                                                    /* Change color as needed */
-                                                                }
-                        
-                                                                .input-text.qty {
-                                                                    width: 70px;
-                                                                    text-align: center;
-                                                                    border: 1px solid #ccc;
-                                                                    margin: 0 5px;
-                                                                    font-size: 1.5em;
-                                                                }
-                                                            </style> --}}
+
 
                                                         </div>
                                                         <div class="col-12 col-lg">
                                                             <!-- Submit -->
                                                             <button type="submit"
                                                                 onclick="AddToCart( {{ $produit->id }} )"
-                                                                class="btn btn-block custom-height bg-dark mb-2">
+                                                                class="btn btn-block snackbar-addcart custom-height bg-dark mb-2">
                                                                 <i class="lni lni-shopping-basket mr-2"></i>Ajouter au
                                                                 panier
                                                             </button>
@@ -718,7 +692,8 @@
                                                             <!-- Wishlist -->
                                                             @if (Auth()->user())
                                                                 <button onclick="AddFavoris({{ $produit->id }})"
-                                                                    class="btn custom-height btn-default btn-block mb-2 text-dark"
+                                            class="btn custom-height snackbar-addcart snackbar-wishlist btn-default btn-block mb-2 text-dark"
+                                                                    class="btn custom-height   btn-default btn-block mb-2 text-dark"
                                                                     data-toggle="button">
                                                                     <i class="lni lni-heart mr-2"></i>Favori
                                                                 </button>

@@ -404,9 +404,15 @@
                                                         @endforeach --}}
 
                                                         @foreach ($produit->taille as $index => $taille)
-                                                        <div class="form-check size-option form-option form-check-inline mb-2">
+                                                        {{-- <div class="form-check size-option form-option form-check-inline mb-2">
                                                             <input type="radio" class="form-check-input" name="taille" value="{{ $taille }}"
                                                                    id="taille-{{ $produit->id }}-{{ $index }}" {{ $loop->first ? 'checked' : '' }}>
+                                                            <label class="form-option-label" for="taille-{{ $produit->id }}-{{ $index }}">{{ $taille }}</label>
+                                                        </div> --}}
+                                                        
+                                                        <div class="form-check size-option form-option form-check-inline mb-2">
+                                                            <input type="radio" class="form-check-input" name="taille" value="{{ $taille }}"
+                                                                   id="taille-{{ $produit->id }}-{{ $index }}">
                                                             <label class="form-option-label" for="taille-{{ $produit->id }}-{{ $index }}">{{ $taille }}</label>
                                                         </div>
                                                     @endforeach
@@ -509,7 +515,7 @@
                                                             <!-- Submit -->
                                                             <button type="submit"
                                                                 onclick="AddToCart( {{ $produit->id }} )"
-                                                                class="btn btn-block custom-height bg-dark mb-2">
+                                                                class="btn btn-block snackbar-addcart custom-height bg-dark mb-2">
                                                                 <i class="lni lni-shopping-basket mr-2"></i>Ajouter au
                                                                 panier
                                                             </button>
@@ -518,7 +524,7 @@
                                                             <!-- Wishlist -->
                                                             @if (Auth()->user())
                                                                 <button onclick="AddFavoris({{ $produit->id }})"
-                                                                    class="btn custom-height btn-default btn-block mb-2 text-dark"
+                                                                    class="btn custom-height btn-default snackbar-wishlist btn-block mb-2 text-dark"
                                                                     data-toggle="button">
                                                                     <i class="lni lni-heart mr-2"></i>Favori
                                                                 </button>

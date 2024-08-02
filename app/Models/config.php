@@ -23,8 +23,10 @@ class config extends Model
         'matricule',
         'facebook',
         'instagram',
-       
-      
+       'tiktok',
+       'logofooter',
+        'twitter',
+        'linkedin',
         'youtube',
 
         

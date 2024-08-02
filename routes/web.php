@@ -99,6 +99,7 @@ Route::middleware('auth')->group(function () {
 
     ///Mon compte
     Route::get('/comptes', [MyAccountController::class, 'comptes'])->name('comptes');
+    Route::put('/avatar/{id}', [MyAccountController::class, 'avatar']);
 
     ///Mon profil
     Route::get('/profile', [MyAccountController::class, 'profile'])->name('profile');

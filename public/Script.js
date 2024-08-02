@@ -18,13 +18,19 @@ function ShowProduitModal(id) {
 
 function AddToCart(id) {
     var quantityElement = $("#qte-" + id);
-    var tailletElement = $("#taille-" + id); 
+    //var tailletElement = $("#taille-" + id); 
    
    var selectedTaille = $('input[name="taille"]:checked').val();
 
   
    if (!selectedTaille) {
-       alert("Veuillez sélectionner une taille.");
+     
+      Swal.fire({
+        icon: 'warning',
+        title: 'Aucune taille sélectionnée',
+        text: 'Veuillez sélectionner une taille avant de continuer.',
+        confirmButtonText: 'OK'
+    });
        return;
    }
 
@@ -41,9 +47,10 @@ function AddToCart(id) {
         id_produit: id,
         quantite: quantity,
         
-        _token: csrfToken,
+       
        // taille: taille,
         taille: selectedTaille,
+        _token: csrfToken,
     
     };
    
@@ -58,11 +65,12 @@ function AddToCart(id) {
         .then((response) => response.json())
         .then((data) => {
             if (data.statut) {
-                sweet_alert("Félicitation", "success", data.message, 1500);
-            
+                 sweet_alert("Félicitation", "success", data.message, 1500); 
+                
+          
                 get_panier();
-             //   location.reload();
-             console.log(data);
+//location.reload();
+          
                 
                 
             } else {
@@ -73,6 +81,22 @@ function AddToCart(id) {
             console.error("Erreur:", error);
         });
 }
+
+get_panier();
+
+ function get_panier() {
+    $.get("/client/count_panier", function (data, status) {
+        if (status) {
+            console.log(data.list);
+            $("#count-panier-span").text(data.total);
+            $("#list_content_panier").html(data.list);
+            $("#montant_total_panier").html(data.montant_total + " DT");
+        } else {
+            console.log("error get panier");
+        }
+    });
+}
+ 
 
 
 
@@ -87,9 +111,9 @@ function DeleteToCart(id) {
             if (status) {
                 if (data.statut) {
                   
-                    get_panier();
-                  //  location.reload();
-                   // get_panier();
+                  get_panier();
+                   location.reload();
+                   
 
                 } else {
                     console.log("error delete product");
@@ -101,20 +125,9 @@ function DeleteToCart(id) {
     );
 }
 
-get_panier();
 
-function get_panier() {
-    $.get("/client/count_panier", function (data, status) {
-        if (status) {
-            console.log(data.list);
-            $("#count-panier-span").text(data.total);
-            $("#list_content_panier").html(data.list);
-            $("#montant_total_panier").html(data.montant_total + " DT");
-        } else {
-            console.log("error get panier");
-        }
-    });
-}
+
+
 
 function AddFavoris(id) {
     var csrfToken = document

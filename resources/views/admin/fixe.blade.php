@@ -449,7 +449,8 @@
                                             Connecté
                                         </p>
                                     </div>
-                                    <img src="{{ Auth::user()->avatar() }}" class="user-img" alt="user avatar">
+                                     <img src="{{ asset('assets/avatars/' . Auth::user()->avatar) }}" class="user-img" alt="user avatar"> 
+                                    
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
