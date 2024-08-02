@@ -65,11 +65,11 @@ function AddToCart(id) {
         .then((response) => response.json())
         .then((data) => {
             if (data.statut) {
-                 sweet_alert("Félicitation", "success", data.message, 1500); 
-                
+                sweet_alert("Félicitation", "success", data.message, 1500); 
+                ;
           
                 get_panier();
-location.reload();
+               location.reload();
           
                 
                 
@@ -111,8 +111,8 @@ function DeleteToCart(id) {
             if (status) {
                 if (data.statut) {
                   
-                  get_panier();
-                   location.reload();
+                   get_panier();
+                  //  location.reload();
                    
 
                 } else {
