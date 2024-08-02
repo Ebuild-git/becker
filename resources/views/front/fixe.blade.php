@@ -640,7 +640,7 @@
 
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
                             <div class="footer_widget">
-                                <img src="assets/logo/blanc1.png" class="img-footer small mb-2" alt="" /> 
+                                <img src="assets/logo/blanc2.png" class="img-footer small mb-2" alt="" /> 
                                       {{-- <img class="img-footer small mb-2" src="{{ Storage::url($config->logoHeader) }}"
                                     alt="Logo" height="100" width="100" />  --}}
                                    
