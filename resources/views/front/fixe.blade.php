@@ -672,9 +672,9 @@
                                     <li><a href="{{ $config->facebook }}">Facebook</a></li>
                                     <li><a href="{{ $config->instagram }}">Instagram</a></li>
                                   
-                                    <li><a href="{{ $config->tiktok }}">TikTok</a></li>
+                                {{--     <li><a href="{{ $config->tiktok }}">TikTok</a></li>
                                     <li><a href="{{ $config->youtube }}">Youtube</a></li>
-                                    
+                                     --}}
                                    
                                 </ul>
                             </div>
