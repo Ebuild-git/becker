@@ -61,18 +61,19 @@ function AddToCart(id) {
             "X-CSRF-TOKEN": csrfToken,
         },
         body: JSON.stringify(data),
+
     })
+
+            
+    
         .then((response) => response.json())
         .then((data) => {
             if (data.statut) {
-                sweet_alert("Félicitation", "success", data.message, 1500); 
-                ;
-          
+                
                 get_panier();
-               location.reload();
-          
-                
-                
+                location.reload(); 
+                sweet_alert("Félicitation", "success", data.message, 1500);      
+                            
             } else {
                 sweet_alert("Attention !", "warning", data.message, 2500);
             }
@@ -87,7 +88,7 @@ get_panier();
  function get_panier() {
     $.get("/client/count_panier", function (data, status) {
         if (status) {
-            console.log(data.list);
+          //  console.log(data.list);
             $("#count-panier-span").text(data.total);
             $("#list_content_panier").html(data.list);
             $("#montant_total_panier").html(data.montant_total + " DT");
@@ -112,7 +113,7 @@ function DeleteToCart(id) {
                 if (data.statut) {
                   
                    get_panier();
-                  //  location.reload();
+                    location.reload();
                    
 
                 } else {
@@ -254,3 +255,5 @@ function remove_favoris(id) {
         }
     );
 }
+
+

@@ -788,7 +788,8 @@
             }
 
             function closeWishlist() {
-                document.getElementById("Wishlist").style.display = "none";
+              document.getElementById("Wishlist").style.display = "none";
+
             }
         </script>
 
@@ -797,6 +798,7 @@
               
               
                 document.getElementById("Cart").style.display = "block";
+         
 
             }
 

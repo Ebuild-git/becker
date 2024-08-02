@@ -65,6 +65,7 @@ class panier_client extends Controller
                 $montant_total += $data["quantite"] * intval($produit->getPrice());
             }
         }
+       
 
         return response()->json(
             [
@@ -74,7 +75,20 @@ class panier_client extends Controller
             ]
         );
     }
+/* public function get_panier() {
+    $data = $this->count_panier();
+    $total = $data['total'];
+    $list = $data['list'];
+    $montant_total = $data['montant_total'];
+    $html =  view('front.cart.cart', compact('total', 'list','montant_total'))->render();
 
+    return response()->json([
+        'html' => $html,
+        'total' => $total,
+        'list' => $list,
+       'montant_total' => $montant_total
+    ]);
+} */
 
 
 
