@@ -14,7 +14,7 @@
                             <div class="row align-items-center justify-content-center">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                     <div class="text-left py-5 mt-3 mb-3">
-                                        <h1 class="ft-medium mb-3">Shop</h1>
+                                        <h1 style="color: white" class="ft-medium mb-3">Shop</h1>
                                         
                                     </div>
                                 </div>
