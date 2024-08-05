@@ -71,7 +71,7 @@ function AddToCart(id) {
             if (data.statut) {
                 
                 get_panier();
-                location.reload(); 
+              //  location.reload(); 
                 sweet_alert("Félicitation", "success", data.message, 1500);      
                             
             } else {
@@ -87,10 +87,10 @@ get_panier();
 
  function get_panier() {
     $.get("/client/count_panier", function (data, status) {
-        if (status) {
+        if (status == "success") {
           //  console.log(data.list);
             $("#count-panier-span").text(data.total);
-            $("#list_content_panier").html(data.list);
+            $("#list_content_panier").html(data.html);
             $("#montant_total_panier").html(data.montant_total + " DT");
         } else {
             console.log("error get panier");
@@ -113,7 +113,7 @@ function DeleteToCart(id) {
                 if (data.statut) {
                   
                    get_panier();
-                    location.reload();
+                  //  location.reload();
                    
 
                 } else {

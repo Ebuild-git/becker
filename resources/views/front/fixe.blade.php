@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="/Script.js"></script>
+    
 
     <!-- Bootstrap CSS -->
     {{--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -37,9 +37,7 @@
  --}}
     <!-- Custom CSS -->
     <link href="/assets/css/styles.css" rel="stylesheet">
-
-    <script src="https://cdn.example.com/library.js" integrity="sha384-...base64hash..." crossorigin="anonymous"></script>
-
+    <script src="/Script.js"></script>
 
     @yield('SEO')
 </head>
