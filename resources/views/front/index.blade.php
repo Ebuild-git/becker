@@ -51,9 +51,6 @@
 
             <!-- ======================= All Category ======================== -->
 
-            <!-- ============================= Customer Features =============================== -->
-            <!-- ======================= Category Style ======================== -->
-            <br><br><br><br>
            
 
 
@@ -64,7 +61,7 @@
                     <div class="row overlio">
 
 
-                        @foreach ($categories as $category)
+                     {{--    @foreach ($categories as $category)
                             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
                                 <div class="cats_caption_wrap">
                                     <div class="cats_caption_thumb mb-2">
@@ -79,7 +76,7 @@
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
+                        @endforeach --}}
 
 
 
