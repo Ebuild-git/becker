@@ -175,13 +175,13 @@
 
 
 
-                                <li class="current">
+                               {{--  <li class="current">
                                     <a href="{{ route('register') }}">Inscription</a>
                                 </li>
 
                                 <li>
                                     <a href="{{ url('login') }}">Connexion</a>
-                                </li>
+                                </li> --}}
                             @else
                                 @if (auth()->user()->role != 'client')
                                     <li><a href="{{ url('dashboard') }}" class="nav-item nav-link">Dashboard</a>
