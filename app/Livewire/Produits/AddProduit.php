@@ -75,7 +75,7 @@ class AddProduit extends Component
     {
         $data =  $this->validate([
             'nom' => 'required|string',
-            'description' => 'required|string|max:260',
+            'description' => 'required|string|max:5000000',
          //   'tags' => 'nullable|string|max:260',
             'reference' => 'required|string|unique:produits,reference',
             'prix' => 'nullable|numeric|gt:prix_achat',
