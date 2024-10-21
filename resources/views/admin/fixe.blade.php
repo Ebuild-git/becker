@@ -496,9 +496,9 @@
     <!--footer -->
     <div class="footer">
         <p class="mb-0">@ {{ date('Y') }} | Developed By :
-            <a href="https://www.e-build.tn" target="_blank" style="color: #c71f17 !important;">
+            <a href="#" target="_blank" style="color: #c71f17 !important;">
                 <strong>
-                    E-Build
+                    BECKER
                 </strong>
             </a>
         </p>

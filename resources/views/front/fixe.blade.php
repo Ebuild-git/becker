@@ -745,9 +745,9 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-12 col-md-12 text-center">
-                            <p class="mb-0">© 2024 BECKER. Designd By <a href="https://www.e-build.tn"
+                            <p class="mb-0">© 2024 BECKER. Designd By <a href="#"
                                     style="color: #c71f17;">
-                                    <b> E-build </b>
+                                   <b> BECKER </b>
                                 </a>.</p>
                         </div>
                     </div>
