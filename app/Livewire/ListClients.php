@@ -25,7 +25,16 @@ class ListClients extends Component
         $total = clients::count();
         return view('livewire.list-clients', compact('clients','total'));
     }
+    public function delete($id)
+    {
+        $client = clients::findOrFail($id);
+        $client->delete();
 
+        session()->flash('message', 'Client supprimé avec succès!');
+    }
+
+    // Event listener for SweetAlert
+    protected $listeners = ['deleteClient' => 'delete'];
 
     public function filtrer()
     {
@@ -33,7 +42,7 @@ class ListClients extends Component
         $this->resetPage();
     }
 
-    public function delete($id){
+    public function delete1($id){
         //delete client
         $client = clients::find($id);
         if($client){
