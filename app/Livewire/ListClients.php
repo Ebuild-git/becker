@@ -34,7 +34,7 @@ class ListClients extends Component
 
     public function delete($id){
         //delete client
-        $client = clients::find($id);
+        $client = User::find($id);
         if($client){
             $client->delete();
             //flash message
