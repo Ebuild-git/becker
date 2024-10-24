@@ -22,7 +22,7 @@ class ListClients extends Component
                 ->orWhere('prenom', 'like', '%' . $this->key . '%');
         }
         $clients = $clients->paginate(30);
-        $total = clients::count();
+        $total = User::count();
         return view('livewire.list-clients', compact('clients','total'));
     }
     

@@ -19,7 +19,7 @@
                     <div class="col-lg-8">
                         <div class="all-content">
                             <div class="title-wrapper text-center mb-40">
-                                <h3 class="title">Création de compte</h3>
+                                <h3 class="title">Création de compte....</h3>
 
                             </div>
 
@@ -120,8 +120,7 @@
                                             <button type="submit"><span class="sing-btn">Enregistrer</span></button>
                                         </div>
                                     </div>
-                                    {{--  <div class="bottom-button">
-                                    </div> --}}
+                                
 
                                 </form>
 

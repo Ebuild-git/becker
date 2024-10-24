@@ -23,7 +23,7 @@
     <meta name="author" content="soukhinkhan">
 
 
-    <link rel="icon" href="{{ Storage::url($config->icon) }}" type="image/png" />
+    <link rel="icon" href="{{ Storage::url($config->icon ?? '') }}" type="image/png" />
 
 
     <link rel="stylesheet" href="/style.css">
@@ -38,6 +38,25 @@
     <!-- Custom CSS -->
     <link href="/assets/css/styles.css" rel="stylesheet">
     <script src="/Script.js"></script>
+
+
+{{--     <div id="google_translate_element"></div> --}}
+
+    <script src="script.js"></script> <!-- Inclure si nécessaire -->
+    
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en', // Langue par défaut (vous pouvez la modifier à 'fr' si c'est le cas pour votre site)
+                includedLanguages: 'fr,en,ar', // Limiter aux langues français, anglais et arabe
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE // Mise en page simple
+            }, 'google_translate_element');
+        }
+    </script>
+    
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+
 
     @yield('SEO')
 </head>
@@ -66,7 +85,7 @@
                     <div class="nav-header">
                         <a class="nav-brand" href="{{ route('home') }}">
                             {{--  <img src="assets/img/logo.png" class="logo" alt="" /> --}}
-                            <img src="{{ Storage::url($config->logo) }}" alt="Logo" />
+                            <img src="{{ Storage::url($config->logo ?? ' ') }}" alt="Logo" />
                         </a>
 
                         <style>
@@ -175,13 +194,6 @@
 
 
 
-                               {{--  <li class="current">
-                                    <a href="{{ route('register') }}">Inscription</a>
-                                </li>
-
-                                <li>
-                                    <a href="{{ url('login') }}">Connexion</a>
-                                </li> --}}
                             @else
                                 @if (auth()->user()->role != 'client')
                                     <li><a href="{{ url('dashboard') }}" class="nav-item nav-link">Dashboard</a>
@@ -231,6 +243,7 @@
                                     </a>
                                 </li>
                             @endif
+
                             <li>
                                 <a href="#" {{-- href="{{ route('favories') }}  --}} onclick="openWishlist()">
                                     <i class="lni lni-heart"></i><span class="dn-counter">
@@ -246,6 +259,9 @@
                                         class="dn-counter theme-bg"></span>
                                 </a>
 
+                            </li>
+                            <li>
+                                <div id="google_translate_element"></div>
                             </li>
                         </ul>
                     </div>
@@ -486,8 +502,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="password_confirmation">Confirmation de mot de passe</label>
-                                {{--  <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required> --}}
-                                <input id="password-confirm" required placeholder="Confirmer le mot de passe"
+                                   <input id="password-confirm" required placeholder="Confirmer le mot de passe"
                                     type="password" class="form-control" name="password_confirmation" required
                                     autocomplete="new-password">
                             </div>
@@ -667,8 +682,8 @@
                             <div class="footer_widget">
                                 <h4 class="widget_title">Réseaux sociaux</h4>
                                 <ul class="footer-menu">
-                                    <li><a href="{{ $config->facebook }}">Facebook</a></li>
-                                    <li><a href="{{ $config->instagram }}">Instagram</a></li>
+                                    <li><a href="{{ $config->facebook ?? ''}}">Facebook</a></li>
+                                    <li><a href="{{ $config->instagram ?? ' ' }}">Instagram</a></li>
                                   
                                 {{--     <li><a href="{{ $config->tiktok }}">TikTok</a></li>
                                     <li><a href="{{ $config->youtube }}">Youtube</a></li>
@@ -719,21 +734,9 @@
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
                             <div class="footer_widget">
                                 <h4 class="widget_title">BECKER</h4>
-                                <p class="justify-text"  style="text-align: justify;">{{ $config->description }}</p>
+                                <p class="justify-text"  style="text-align: justify;">{{ $config->description ?? ' '}}</p>
                                 <div class="foot-news-last">
-                                  {{--   <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Email Address">
-                                        <div class="input-group-append">
-                                            <button type="button" class="input-group-text b-0 text-light"><i
-                                                    class="lni lni-arrow-right"></i></button>
-                                        </div>
-                                    </div> --}}
-                                </div>
-                                {{--      <div class="address mt-3">
-                            <h5 class="fs-sm text-light">Secure Payments</h5>
-                            <div class="scr_payment"><img src="assets/img/card.png" class="img-fluid"
-                                    alt="" /></div>
-                        </div> --}}
+                             
                             </div>
                         </div>
 

@@ -172,11 +172,7 @@
                                             class="badge bg-danger text-white position-absolute ft-regular ab-left text-upper">
                                             - {{ $produit->inPromotion()->pourcentage }} %</div>
                                     @endif
-                                    {{--  @if (Auth()->user())
-                                        <button   id="favoris-button-{{ $produit->id }}" onclick="AddFavoris({{ $produit->id }})"
-                                            class="snackbar-wishlist btn btn_love position-absolute ab-right"><i
-                                                class="far fa-heart"></i></button>
-                                    @endif --}}
+                               
                                    
                                     @if (Auth()->user())
                                     @php
@@ -379,27 +375,6 @@
                                                     @endforeach
 
 
-                                                    {{-- 
-                                                 
-                                                   
-                                                </div>
-                                                <div class="text-right">
-                                                    {{--  <button class="btn auto btn_love snackbar-wishlist"><i
-                                                    class="far fa-heart"></i></button> --}}
-
-                                                    {{--    @if (Auth()->user())
-                                                        <button type="button favoris-button-"
-                                                            class="btn auto btn_love snackbar-wishlist"
-                                                           
-                                                            onclick="AddFavoris({{ $produit->id }})">
-
-                                                            <i class="far fa-heart"></i>
-
-                                                        </button>
-                                                    @endif
- --}}
-
-
 
 
 
@@ -413,7 +388,7 @@
                                                 <div class="elis_rty"><span class="ft-bold text-dark fs-sm">
                                                         @if ($produit->inPromotion())
                                                             <span class=" small">
-                                                              {{--   - {{ $produit->inPromotion()->pourcentage }} % --}}
+                                                         
                                                             </span>
                                                             <b class="">
                                                                 {{ $produit->getPrice() }} DT
@@ -506,21 +481,10 @@
                                                     <div class="text-left">
                                                         <div
                                                             class="star-rating align-items-center d-flex justify-content-left mb-1 p-0">
-                                                            {{-- <i class="fas fa-star filled"></i>
-                                                <i class="fas fa-star filled"></i>
-                                                <i class="fas fa-star filled"></i>
-                                                <i class="fas fa-star filled"></i>
-                                                <i class="fas fa-star"></i>
-                                                <span class="small">(412 Reviews)</span> --}}
+                                                       
                                                         </div>
                                                         <div class="elis_rty">
-                                                            {{--  <span
-                                                            class="ft-medium text-muted line-through fs-md mr-2">
-                                                            $199
-                                                            </span>
-                                                            <span
-                                                                class="ft-bold theme-cl fs-lg mr-2">$110
-                                                            </span> --}}
+                                                        
                                                             @if ($produit->inPromotion())
                                                                 <span class=" small">
                                                                     - {{ $produit->inPromotion()->pourcentage }} %
@@ -587,22 +551,10 @@
                                                         Taille(s):
                                                     </p>
                                                     <div class="text-left pb-0 pt-2">
-                                                      {{--   @foreach ($produit->taille as $taille)
-                                                            <div
-                                                                class="form-check size-option form-option form-check-inline mb-2">
-                                                                <input class="form-check-input" type="radio" 
-                                                                    name="taille" id="taille_{{ $taille }}"checked="">
-                                                                <label class="form-option-label"
-                                                                    for="28">{{ $taille }}</label>
-                                                            </div>
-                                                        @endforeach --}}
+                                                     
                                                        
                                                         @foreach ($produit->taille as $index => $taille)
-                                                       {{--  <div class="form-check size-option form-option form-check-inline mb-2">
-                                                            <input type="radio" class="form-check-input" name="taille" value="{{ $taille }}"
-                                                                   id="taille-{{ $produit->id }}-{{ $index }}" {{ $loop->first ? 'checked' : '' }}>
-                                                            <label class="form-option-label" for="taille-{{ $produit->id }}-{{ $index }}">{{ $taille }}</label>
-                                                        </div> --}}
+                                                     
 
                                                         <div class="form-check size-option form-option form-check-inline mb-2">
                                                             <input type="radio" class="form-check-input" name="taille" value="{{ $taille }}"
@@ -701,19 +653,7 @@
 
                                                 <div class="prt_06">
                                                     <p class="mb-0 d-flex align-items-center">
-                                                        {{--     <span class="mr-4">Share:</span>
-                                                            <a class="d-inline-flex align-items-center justify-content-center p-3 gray circle fs-sm text-muted mr-2"
-                                                                href="#!">
-                                                                <i class="fab fa-twitter position-absolute"></i>
-                                                            </a>
-                                                            <a class="d-inline-flex align-items-center justify-content-center p-3 gray circle fs-sm text-muted mr-2"
-                                                                href="#!">
-                                                                <i class="fab fa-facebook-f position-absolute"></i>
-                                                            </a>
-                                                            <a class="d-inline-flex align-items-center justify-content-center p-3 gray circle fs-sm text-muted"
-                                                                href="#!">
-                                                                <i class="fab fa-pinterest-p position-absolute"></i>
-                                                            </a> --}}
+                                                
                                                     </p>
                                                 </div>
 
